@@ -7,8 +7,8 @@
 -- Versión del servidor: 5.6.19-1~exp1ubuntu2
 -- Versión de PHP: 5.6.8-1+deb.sury.org~utopic+1
 
-CREATE DATABASE IF NOT EXISTS pladi;
-USE pladi;
+CREATE DATABASE IF NOT EXISTS Pladi;
+USE Pladi;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `categoria` (
 `id_categoria` int(11) NOT NULL,
-  `nombre` varchar(100) CHARACTER SET latin1 NOT NULL
+  `nombre` varchar(100) CHARACTER SET latin1 NOT NULL UNIQUE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -100,9 +100,9 @@ CREATE TABLE IF NOT EXISTS `respuesta` (
 DELIMITER //
 CREATE TRIGGER `insert_pregunta` AFTER INSERT ON `respuesta`
  FOR EACH ROW BEGIN
-	INSERT INTO `notificacion` (`fecha`,`visto`,`fk_id_pregunta`) VALUES
-	(NEW.fecha,'0',NEW.fk_id_pregunta);		
-	UPDATE pregunta SET ult_respuesta = NEW.fecha, repuestas = repuestas + 1 WHERE id_pregunta = NEW.fk_id_pregunta;
+  INSERT INTO `notificacion` (`fecha`,`visto`,`fk_id_pregunta`) VALUES
+  (NEW.fecha,'0',NEW.fk_id_pregunta);   
+  UPDATE pregunta SET ult_respuesta = NEW.fecha, repuestas = repuestas + 1 WHERE id_pregunta = NEW.fk_id_pregunta;
 END
 //
 DELIMITER ;
@@ -143,13 +143,13 @@ ALTER TABLE `notificacion`
 -- Indices de la tabla `perfil_usuario`
 --
 ALTER TABLE `perfil_usuario`
- ADD PRIMARY KEY (`id_perfil_usuario`), ADD KEY `fk_id_usuario` (`fk_id_usuario`);
+ ADD PRIMARY KEY (`id_perfil_usuario`), ADD KEY `fk_id_usuario3` (`fk_id_usuario`);
 
 --
 -- Indices de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
- ADD PRIMARY KEY (`id_pregunta`), ADD UNIQUE KEY `titulo` (`titulo`), ADD KEY `fk_id_usuario` (`fk_id_usuario`), ADD KEY `fk_id_categoria` (`fk_id_categoria`);
+ ADD PRIMARY KEY (`id_pregunta`), ADD UNIQUE KEY `titulo` (`titulo`), ADD KEY `fk_id_usuario2` (`fk_id_usuario`), ADD KEY `fk_id_categoria` (`fk_id_categoria`);
 
 --
 -- Indices de la tabla `respuesta`
