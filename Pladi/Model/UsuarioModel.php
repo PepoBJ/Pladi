@@ -174,6 +174,10 @@
 			return array(false, false);
 		}
 
+		/*	**	*/
+
+		/*		SAVE USUARIO PROFILE		*/
+
 		public static function saveUserProfile($idUsuario, $foto = NULL, $twitter = NULL, $facebook = NULL)
 		{			
 			if ($foto != NULL || $twitter != NULL || $facebook != NULL)
@@ -186,6 +190,36 @@
 				
 				return $profile->save();
 			}
+		}
+		
+		/*	**	*/
+
+		/*		UPDATE USUARIO PROFILE 		*/
+		
+		public static function updateUserProfile($id, $foto = NULL, $twitter = NULL, $facebook = NULL)
+		{			
+			if ($foto != NULL || $twitter != NULL || $facebook != NULL)
+			{
+				$profile = new PerfilUsuario();
+				$profile->setFoto($foto);
+				$profile->setTwitter($twitter);
+				$profile->setFacebook($facebook);
+				$profile->setId($id);
+				
+				return $profile->update();
+			}
+		}
+		
+		/*	**	*/
+
+		/*		DELETE USUARIO PROFILE 		*/
+		
+		public static function deleteUserProfile($id)
+		{	
+			$profile = new PerfilUsuario();
+			$profile->setId($id);
+			
+			return $profile->delete();
 		}
 		
 		/*	**	*/

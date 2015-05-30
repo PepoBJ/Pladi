@@ -8,18 +8,22 @@
 	{
 		public function index()
 		{
-			//$out = UM::saveUserProfile(6,'Juan.jpg', 'https://twitter.com/Juan', 'https://facebook.com/Juan');
-			$out = UM::save('Test', 'test', 'test@gmail.com', '123456', 'normal', 'activo', 'test.jpg', 'https://twitter.com/test', 'https://facebook.com/test');
+			
+			/*UM::save('Robert', 'Huaman Caceres', 'Robert@gmail.com', '123456', 'normal', 'activo', 'Robert.jpg', 'https://twitter.com/Robert', 'https://facebook.com/Robert');
+			UM::save('Juan', 'Estrada Escalante', 'Juan@gmail.com', '123456', 'normal', 'activo', 'Juan.jpg', 'https://twitter.com/Juan', 'https://facebook.com/Juan');
+			UM::save('Elio', 'Bustamante Damte', 'Elio@gmail.com', '123456', 'normal', 'activo', 'Elio.jpg', 'https://twitter.com/Elio', 'https://facebook.com/Elio');
+		*/
 
-			die(var_dump($out));
+		UM::deleteUserProfile(2);
         //Cargamos la vista index y le pasamos valores
-	        echo $this->view("Index",array(
+	        /*$this->view("Index",array(
 	            "allusers"=> UM::all(),
 	            "Hola"    =>"Soy Víctor Robles"
-	        ));
+	        ));*/
 		}
-		public function adios()
+		public function all()
 		{
-			echo 'chau';
+			echo '<pre>';
+			var_dump(UM::all());
 		}
 	}

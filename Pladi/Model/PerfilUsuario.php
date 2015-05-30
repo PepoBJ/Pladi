@@ -113,6 +113,37 @@
 		}
 		
 		/*	**	*/	
+
+		/*		UPDATE 		*/
+		
+		public function update()
+		{
+			$save = $this->runSql(
+				"UPDATE `perfil_usuario` 
+					SET `foto` = '" . $this->getFoto() . "', 
+					`twitter` = '" . $this->getTwitter() . "', 
+					`facebook` = '" . $this->getFacebook() . "' 
+				WHERE `id_perfil_usuario` = '" . $this->getId() . "' ;"
+			);
+
+			return $save;
+		}
+		
+		/*	**	*/
+
+		/*		DELETE 		*/
+		
+		public function delete()
+		{
+			$save = $this->runSql(
+				"DELETE FROM `perfil_usuario` 
+				WHERE `id_perfil_usuario` = '" . $this->getId() . "' ;"
+			);
+
+			return $save;
+		}
+		
+		/*	**	*/
 	}
 
 /*		FIN CLASS USUARIO PERFIL 		*/
