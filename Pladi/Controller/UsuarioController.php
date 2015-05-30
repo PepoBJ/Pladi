@@ -13,8 +13,7 @@
 			UM::save('Juan', 'Estrada Escalante', 'Juan@gmail.com', '123456', 'normal', 'activo', 'Juan.jpg', 'https://twitter.com/Juan', 'https://facebook.com/Juan');
 			UM::save('Elio', 'Bustamante Damte', 'Elio@gmail.com', '123456', 'normal', 'activo', 'Elio.jpg', 'https://twitter.com/Elio', 'https://facebook.com/Elio');
 		*/
-
-		UM::deleteUserProfile(2);
+		UM::deleteUser(2);
         //Cargamos la vista index y le pasamos valores
 	        /*$this->view("Index",array(
 	            "allusers"=> UM::all(),

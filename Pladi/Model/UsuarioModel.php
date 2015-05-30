@@ -145,7 +145,7 @@
 
 		/*		SAVE USUARIO 		*/
 		
-		public static function save($nombre, $apellido, $email, $contrasena, $tipo = "normal", $estado = "activo", $foto = NULL, $twitter = NULL, $facebook = NULL)
+		public static function saveUser($nombre, $apellido, $email, $contrasena, $tipo = "normal", $estado = "activo", $foto = NULL, $twitter = NULL, $facebook = NULL)
 		{
 			$user = new Usuario();
 			$user->setNombre($nombre);
@@ -174,6 +174,37 @@
 			return array(false, false);
 		}
 
+		/*	**	*/
+		
+
+		/*		UPDATE USUARIO 		*/
+		
+		public static function updateUser($id, $nombre, $apellido, $email, $contrasena, $tipo = "normal", $estado = "activo")
+		{
+			$user = new Usuario();
+			$user->setNombre($nombre);
+			$user->setApellido($apellido);
+			$user->setEmail($email);
+			$user->setContrasena($contrasena);
+			$user->setTipo($tipo);
+			$user->setEstado($estado);
+			$user->setId($id);
+
+			return $user->update();			
+		}
+		
+		/*	**	*/
+
+		/*		DELTE USUARIO 		*/
+		
+		public static function deleteUser($id)
+		{
+			$user = new Usuario();
+			$user->setId($id);
+
+			return $user->delete();			
+		}
+		
 		/*	**	*/
 
 		/*		SAVE USUARIO PROFILE		*/

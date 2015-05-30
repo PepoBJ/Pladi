@@ -163,5 +163,39 @@
 		
 		/*	**	*/	
 
+		/*		UPDATE 		*/
+		
+		public function update()
+		{
+			$save = $this->runSql(
+				"UPDATE `usuario` SET 
+					`nombre` = '" . $this->getNombre() . "', 
+					`apellido` = '" . $this->getApellido() . "', 
+					`email` = '" . $this->getEmail() . "', 
+					`contrasena` ='" . md5($this->getContrasena()) . "',
+					`tipo` = '" . $this->getTipo() . "', 
+					`estado` = '" . $this->getEstado() . "' 
+				WHERE id_usuario = '" . $this->getId() . "' ;"
+			);
+
+			return $save;
+		}
+		
+		/*	**	*/
+
+		/*		DELTE 		*/
+		
+		public function delete()
+		{
+			$save = $this->runSql(
+				"DELETE FROM `usuario` 
+					WHERE id_usuario = '" . $this->getId() . "' ;"
+			);
+
+			return $save;
+		}
+		
+		/*	**	*/
+
 	}
 /*		FIN CLASS USUARIO 		*/
