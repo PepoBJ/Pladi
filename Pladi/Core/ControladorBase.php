@@ -33,12 +33,15 @@
 
         /*        REDIRECCIONAMIENTO DINAMICO         */
         
-        public function redirect($controlador = "", $accion = "")
+        public function redirect($controlador = "", $accion = "", $args = NULL)
         {
             $controlador = $controlador == "" ? VariablesGlobales::$controlador_defecto : $controlador;
             $accion = $accion == "" ?VariablesGlobales::$accion_defecto : $accion;
 
-            header("Location:index.php?controller=" . $controlador . "&action=" . $accion);
+            if ( ! isset($args))
+                header("Location:/" . $controlador . "/" . $accion);
+            else
+                header("Location:/" . $controlador . "/" . $accion . "/" . $args);
         }
         
         /*    **    */

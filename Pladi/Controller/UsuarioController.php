@@ -28,8 +28,10 @@
 			var_dump(UM::all());
 		}
 
-		public function get($id)
+		public function get($id = NULL)
 		{
+			
+
 			echo '<pre>';
 			var_dump(UM::id($id));	
 		}
