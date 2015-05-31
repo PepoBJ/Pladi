@@ -17,7 +17,7 @@
 
         /*        MONTAR LA VISTA         */
         
-        public function view($vista, $datos)
+        public function view($vista, $datos = array())
         {
             foreach ($datos as $id_assoc => $valor) 
             {

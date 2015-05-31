@@ -7,8 +7,8 @@
 -- Versión del servidor: 5.6.19-1~exp1ubuntu2
 -- Versión de PHP: 5.6.8-1+deb.sury.org~utopic+1
 
-CREATE DATABASE IF NOT EXISTS Pladi;
-USE Pladi;
+CREATE DATABASE IF NOT EXISTS pladi;
+USE pladi;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";

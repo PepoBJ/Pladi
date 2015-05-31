@@ -75,7 +75,7 @@
         {
             $query = $this
                         ->db
-                        ->query("SELECT * FROM $this->table WHERE id_$this->table = $id");
+                        ->query("SELECT * FROM $this->table WHERE id_$this->table = ('$id')");
 
             if($row = $query->fetch_object($class_name)) 
             {

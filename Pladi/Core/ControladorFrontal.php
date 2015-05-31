@@ -28,9 +28,13 @@
             $accion = $action;
 
             if (isset($_GET['args']))
+            {
                 $controllerObj->$accion($_GET['args']);
-            
-            $controllerObj->$accion();
+            }
+            else
+            {
+                $controllerObj->$accion();
+            }
         }
         
         /*    **    */

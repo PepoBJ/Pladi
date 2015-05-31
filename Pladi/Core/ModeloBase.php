@@ -29,14 +29,14 @@
 
             if ($query == true)
             {
-                if ($query->num_rows > 1)
+                if (@$query->num_rows > 1)
                 {
                     while ($row = $query->fetch_object($class_name)) 
                     {
                        $resultSet[] = $row;
                     }
                 }
-                elseif ($query->num_rows == 1)
+                elseif (@$query->num_rows == 1)
                 {
                     if ($row = $query->fetch_object($class_name)) 
                     {

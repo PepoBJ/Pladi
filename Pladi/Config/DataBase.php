@@ -17,13 +17,13 @@
 		
 		/*		USUARIO BD 		*/
 		
-		public static $user     = "root";
+		public static $user     = "homestead";
 		
 		/*	**	*/
 		
 		/*		CONTRASEÑA BD 		*/
 		
-		public static $pass     = "";
+		public static $pass     = "secret";
 		
 		/*	**	*/
 		
