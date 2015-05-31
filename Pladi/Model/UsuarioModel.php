@@ -53,7 +53,7 @@
 
 			if ( isset($user_profile))
 			{
-				$user_actual->setPerfilUsuario($profile->getBy($user_profile));
+				$user_actual->setPerfilUsuario($user_profile);
 			}
 
 			return $user_actual;
@@ -105,7 +105,7 @@
 
 			if ( isset($user_profile))
 			{
-				$user_actual->setPerfilUsuario($profile->getBy($user_profile));
+				$user_actual->setPerfilUsuario($user_profile);
 			}
 			
 			return $user_actual;
@@ -126,6 +126,7 @@
 				session_start();
 				$_SESSION['user']['id'] = $user->getId();
 				$_SESSION['user']['email'] = $user->getEmail();
+				return true;
 			}
 
 			return false;

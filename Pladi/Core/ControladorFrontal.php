@@ -26,6 +26,10 @@
         function cargarAccion($controllerObj, $action)
         {
             $accion = $action;
+
+            if (isset($_GET['args']))
+                $controllerObj->$accion($_GET['args']);
+            
             $controllerObj->$accion();
         }
         
