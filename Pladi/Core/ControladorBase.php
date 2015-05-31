@@ -39,9 +39,13 @@
             $accion = $accion == "" ?VariablesGlobales::$accion_defecto : $accion;
 
             if ( ! isset($args))
+            {
                 header("Location:/" . $controlador . "/" . $accion);
+            }
             else
+            {
                 header("Location:/" . $controlador . "/" . $accion . "/" . $args);
+            }
         }
         
         /*    **    */
