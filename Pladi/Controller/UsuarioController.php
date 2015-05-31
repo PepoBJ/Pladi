@@ -2,7 +2,7 @@
 
 	use Pladi\Core\ControladorBase;
 
-	use Pladi\Model\UsuarioModel as UM;
+	use Pladi\Model\Categoria as UM;
 
 	class UsuarioController extends ControladorBase
 	{
@@ -13,8 +13,15 @@
 			UM::saveUser('Juan', 'Estrada Escalante', 'Juan@gmail.com', '123456', 'normal', 'activo', 'Juan.jpg', 'https://twitter.com/Juan', 'https://facebook.com/Juan');
 			UM::saveUser('Elio', 'Bustamante Damte', 'Elio@gmail.com', '123456', 'normal', 'activo', 'Elio.jpg', 'https://twitter.com/Elio', 'https://facebook.com/Elio');
 		*/
-			echo '<pre>';
-			var_dump(UM::login('Robert@gmail.com', '12345'));
+			
+
+		$ct = new UM();
+
+		$ct->setNombre('Programacion2');
+		$ct->setId(1);
+		$ct->delete();
+		var_dump($ct->getAll());
+
 		//UM::deleteUser(2);
         //Cargamos la vista index y le pasamos valores
 	        /*$this->view("Index",array(
