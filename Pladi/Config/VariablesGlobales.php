@@ -4,7 +4,7 @@
 	{
 		/*		CONTROLADOR POR DEFECTO 		*/
 		
-		public static $controlador_defecto = "Usuario";
+		public static $controlador_defecto = "Index";
 		
 		/*	**	*/
 
