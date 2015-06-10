@@ -1,5 +1,5 @@
 * {
-	font-family: "proxima-nova",verdana;
+	font-family: verdana;
 }
 
 html, body, #header {
@@ -64,7 +64,7 @@ html, body, #header {
 	padding: 2.8em 1.3em ;
 }
 #banner .banner__descripcion {
-	color: ##DCDEEA;
+	color: #DCDEEA;
 	font-weight: bold;
 	text-transform: uppercase;
 }
@@ -81,16 +81,60 @@ html, body, #header {
 	width: 80%;
 }
 
+#main #usuarios .usuario__imagen {
+	border-radius: 50%;
+	box-shadow: 0px 0px 15px rgba(0,0,0,1);
+	margin-bottom: 1em;
+}
+#main #usuarios .usuarios__titulo {
+	border-bottom: 1px solid #CCC;
+	color: #222;
+	font-size: 1.5em;
+	line-height: 2;
+	margin-bottom: 1.3em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
 #footer {
+	margin-top: 2em;
 	padding: 1.5em 0;
 	background: rgba(0,0,0,1);
 	color: #FFF;
 }
-#footer .caja { border: 1px solid blue}
+
+#footer .contacto a {
+	border-radius: 50%;	
+	color: #FFF;
+	display: inline-block;
+	line-height: 2;
+	padding: 0 .5em;
+	transition: all ease-in .5s;
+}
+#footer .contacto .icon-facebook:hover {
+	background: #3D5B99;
+}
+#footer .contacto .icon-twitter:hover {
+	background: #55ACEE;	
+}
+#footer .contacto .icon-rss:hover {
+	background: #FFAA58;
+}
+
+#footer .derechos-autor {
+	font-size: .8em;
+}
 
 /* Desde tablet */
 @media all and (min-width:768px){
 	#banner .banner__boton button {
 		width: 30%;
 	}	
+
+	#footer .contacto {
+		text-align: left;
+	}
+	#footer .derechos-autor {
+		text-align: right;
+	}
 }

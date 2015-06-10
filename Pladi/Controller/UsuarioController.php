@@ -8,6 +8,7 @@
 	{
 		public function index()
 		{
-			$this->view('Index');
+			echo '<pre>';
+			print_r(UM::all());
 		}
 	}

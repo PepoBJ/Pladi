@@ -36,21 +36,87 @@
 	</header>
 
 	<main id="main">
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
-		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem accusantium atque nulla quaerat architecto vero qui doloribus, nobis magni incidunt id neque eaque? Nihil eius impedit, odio earum provident quibusdam.</div>
+		<section id="usuarios">
+			<div class="grupo">
+				<div class="caja">
+					<h1 class="usuarios__titulo">Nuestra comunidad</h1>
+				</div>
+			</div>
+			<div class="grupo">
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+				<div class="caja base-50 movil-1-3 tablet-1-6 web-1-8">
+					<img class="usuario__imagen" src="/img/users/template.png" alt="user template">
+				</div>
+			</div>
+		</section>
 	</main>
 
 	<footer id="footer">
