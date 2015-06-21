@@ -30,6 +30,37 @@
         }
         /*	**	*/
         
+        /*        MENU PLADI         */
+        
+        public function pladi_menu()
+        {
+            return 
+            '<div class="grupo base-tabla">
+                <div class="caja logo base-50">
+                    <img class="logo__img" src="/img/logo.png" alt="logo">
+                    <span class="logo__titulo">PlaDi</span>
+                </div>
+                <div class="caja login base-50 medio">
+                    <button class="login__boton derecha">Login</button>
+                </div>
+            </div>';
+        }
+        
+        public function pladi_footer()
+        {
+            return 
+            '<div class="grupo centrar-contenido">
+                <div class="caja tablet-50 contacto">
+                    <a href="#" class="icon-facebook"></a>
+                    <a href="#" class="icon-twitter"></a>
+                    <a href="#" class="icon-rss"></a>
+                </div>
+                <div class="caja tablet-50 derechos-autor">
+                    <p>Pladi &copy; 2015</p>
+                </div>
+            </div>';
+        }
+        /*    **    */
         //Helpers para las vistas
     }
 

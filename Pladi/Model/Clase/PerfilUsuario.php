@@ -12,6 +12,12 @@
 		
 		/*	**	*/		
 
+		/*		CONSTANTE - PATH - IMG 		*/
+		
+		const PATH = "/img/users/";
+		
+		/*	**	*/
+
 		/*		 ID PERFIL USUARIO		*/
 		
 		private $id_perfil_usuario;
@@ -37,7 +43,7 @@
 		}
 		public function getFoto()
 		{
-			return $this->foto;
+			return self::PATH . $this->foto;
 		}
 		
 		/*	**	*/

@@ -11,4 +11,10 @@
 			echo '<pre>';
 			print_r(UM::all());
 		}
+
+		public function get($id)
+		{
+			$data = array ( 'usuario' => UM::id($id));
+			$this->view('usuario/perfil', $data);
+		}
 	}
