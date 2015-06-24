@@ -41,51 +41,6 @@
 		
 		/*	**	*/
 
-		/*		SAVE 		*/
-		
-		public function save()
-		{
-			$save = $this->runSql(
-				"INSERT INTO `categoria` (
-					`nombre`) 
-				VALUES ( 
-					'" . $this->getNombre() . "'
-				);"
-			);
-
-			return $save;
-		}
-		
-		/*	**	*/	
-
-		/*		UPDATE 		*/
-		
-		public function update()
-		{
-			$save = $this->runSql(
-				"UPDATE `categoria` SET 
-					`nombre` = '" . $this->getNombre() . "'  
-				WHERE id_categoria = '" . $this->getId() . "' ;"
-			);
-
-			return $save;
-		}
-		
-		/*	**	*/
-
-		/*		DELTE 		*/
-		
-		public function delete()
-		{
-			$save = $this->runSql(
-				"DELETE FROM `categoria` 
-					WHERE id_categoria = '" . $this->getId() . "' ;"
-			);
-
-			return $save;
-		}
-		
-		/*	**	*/
 	}
 
 	/*		FIN CLASS CATEGORIA		*/

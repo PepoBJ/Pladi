@@ -1,3 +1,6 @@
+header {
+	height: 57.5px;
+}
 #menu {
 	cursor: default;
 	padding: .3em;
@@ -61,10 +64,7 @@
 
 /* Desde tablet */
 @media all and (min-width:768px){
-	#banner .banner__boton button {
-		width: 30%;
-	}	
-
+	
 	#footer .contacto {
 		text-align: left;
 	}

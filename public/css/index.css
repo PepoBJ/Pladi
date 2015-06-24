@@ -24,18 +24,16 @@ html, body, #header {
 
 
 #banner {
-	bottom: 20%;
+	bottom: 10%;
 	left:0;
 	margin:auto;
 	position: absolute;
 	right: 0;
 }
-#banner .banner__descripcion, #banner .banner__boton {
-	padding: 2.8em 1.3em ;
-}
 #banner .banner__descripcion {
 	color: #DCDEEA;
 	font-weight: bold;
+	padding-bottom: 2em;
 	text-transform: uppercase;
 }
 #banner .banner__boton button {
@@ -46,7 +44,7 @@ html, body, #header {
 	color: #FFF;
 	cursor: pointer;
 	font-size: 1.1em;
-	line-height: 4;
+	line-height: 2;
 	transition: all ease-out 1s;
 	width: 80%;
 }
@@ -86,3 +84,10 @@ html, body, #header {
 	text-transform: uppercase;
 }
 
+/* Desde tablet */
+@media all and (min-width:768px){
+	#banner .banner__boton button {
+		width: 35%;
+		line-height: 4;
+	}
+}

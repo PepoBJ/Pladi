@@ -40,7 +40,7 @@
 				<?php for ($i = 0 ; $i < count($usuarios) && $i < 20 ; $i ++ ): ?>
 
 					<div class="caja centrar-contenido base-50 movil-1-3 tablet-1-6 web-1-8">
-						<img id="<?=$usuarios[$i]->getId();?>" class="usuario__imagen" src="<?= $usuarios[$i]->getPerfilUsuario()->getFoto()?>" alt="user template">
+						<img id="<?=$usuarios[$i]->getId();?>" class="usuario__imagen" src="<?= $usuarios[$i]->getPerfilUsuario()->getFoto()?>" alt="user <?=$usuarios[$i]->getNombre()?>">
 						<p class="usuario__nombre"><?=$usuarios[$i]->getNombre();?></p>
 					</div>
 
