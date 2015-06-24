@@ -67,10 +67,7 @@
 		
 		public function delete(UserProfile $user_profile)
 		{
-			$save = $this->runSql(
-				"DELETE FROM `perfil_usuario` 
-				WHERE `fk_id_usuario` = '" . $user_profile->getIdUsuario() . "' ;"
-			);
+			$save = $this->deleteBy('fk_id_usuario', $user_profile->getIdUsuario());
 
 			return $save;
 		}

@@ -20,7 +20,7 @@ function menu_pegajoso()
 		{
 			menu.addClass('menu-fixed');
 			menu.css({
-				'background-color': 'rgba(0,0,0,.8)'
+				'background-color': 'rgba(0,0,0,.9)'
 			});
 		} 
 		else 

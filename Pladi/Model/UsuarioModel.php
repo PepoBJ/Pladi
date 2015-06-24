@@ -8,6 +8,15 @@
 	class UsuarioModel 
 	{
 
+		/*		CONSTANTE NAMESPACES CLASE USUARIO Y PERFIL 		*/
+		
+		const USER_NAMESPACE = 'Pladi\Model\Clase\Usuario';
+		const PERFIL_NAMESPACE = 'Pladi\Model\Clase\PerfilUsuario';
+		
+		/*	**	*/
+
+
+
 		/*		CONSTRUCTOR		*/
 
 		public function __construct()
@@ -22,7 +31,7 @@
 		{
 			$a_user = new AUsuario();
 
-			$users = $a_user->getAll('Pladi\Model\Clase\Usuario');
+			$users = $a_user->getAll(self::USER_NAMESPACE);
 
 			if (!isset($users)) return null;
 
@@ -30,7 +39,7 @@
 
 			foreach ($users as $index => $user_actual) {
 				
-				$user_profile = $a_profile->getBy('fk_id_usuario', $user_actual->getId(), 'Pladi\Model\Clase\PerfilUsuario')[0];
+				$user_profile = $a_profile->getBy('fk_id_usuario', $user_actual->getId(), self::PERFIL_NAMESPACE)[0];
 				
 				if ( ! isset($user_profile) ) continue;
 
@@ -49,13 +58,13 @@
 		public static function id($id)
 		{
 			$a_user = new AUsuario();
-			$user_actual = $a_user->getById($id, 'Pladi\Model\Clase\Usuario');
+			$user_actual = $a_user->getById($id, self::USER_NAMESPACE);
 
 			if (!isset($user_actual)) return null;
 
 			$a_profile = new APerfilUsuario();
 
-			$user_profile = $a_profile->getBy('fk_id_usuario', $user_actual->getId(), 'Pladi\Model\Clase\PerfilUsuario')[0];
+			$user_profile = $a_profile->getBy('fk_id_usuario', $user_actual->getId(), self::PERFIL_NAMESPACE)[0];
 
 			if ( isset($user_profile))
 			{
@@ -74,15 +83,15 @@
 			$a_user = new AUsuario();
 			$users = $a_user->runSql(
 							"SELECT * FROM " . $a_user->table() . " WHERE $campo LIKE '%$patron%'",
-							'Pladi\Model\Clase\Usuario');
+							self::USER_NAMESPACE);
 			
-			if (!isset($users) || ! is_object($users) || ! is_array($users)) return null;
+			if (! is_object($users) && ! is_array($users)) return null;
 
 			$a_profile = new APerfilUsuario();
 
 			foreach ($users as $index => $user_actual) {
 				
-				$user_profile = $a_profile->getBy('fk_id_usuario', $user_actual->getId(), 'Pladi\Model\Clase\PerfilUsuario')[0];
+				$user_profile = $a_profile->getBy('fk_id_usuario', $user_actual->getId(), self::PERFIL_NAMESPACE)[0];
 				
 				if ( ! isset($user_profile) ) continue;
 
@@ -101,13 +110,13 @@
 		public static function busquedaPorEmail($email)
 		{
 			$a_user = new AUsuario();
-			$user_actual = $a_user->getBy("email", $email, 'Pladi\Model\Clase\Usuario')[0];
+			$user_actual = $a_user->getBy("email", $email, self::USER_NAMESPACE)[0];
 
 			if (!isset($user_actual)) return null;
 
 			$a_profile = new APerfilUsuario();
 
-			$user_profile = $a_profile->getBy('fk_id_usuario', $user_actual->getId(), 'Pladi\Model\Clase\PerfilUsuario')[0];
+			$user_profile = $a_profile->getBy('fk_id_usuario', $user_actual->getId(), self::PERFIL_NAMESPACE)[0];
 
 			if ( isset($user_profile))
 			{

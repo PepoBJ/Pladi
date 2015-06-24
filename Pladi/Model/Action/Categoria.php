@@ -51,15 +51,12 @@
 		
 		public function delete(Category $category)
 		{
-			$save = $this->runSql(
-				"DELETE FROM `categoria` 
-					WHERE id_categoria = '" . $category->getId() . "' ;"
-			);
-
+			$save = $this->deleteById($category->getId());
+			
 			return $save;
 		}
 		
 		/*	**	*/
 	}
 
-	/*		FIN CLASS ACTIO CATEGORIA		*/
+	/*		FIN CLASS ACTION CATEGORIA		*/

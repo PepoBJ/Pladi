@@ -66,10 +66,7 @@
 		
 		public function delete(User $user)
 		{
-			$save = $this->runSql(
-				"DELETE FROM `usuario` 
-					WHERE id_usuario = '" . $user->getId() . "' ;"
-			);
+			$save = $this->deleteById($user->getId());
 
 			return $save;
 		}

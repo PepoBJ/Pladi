@@ -43,7 +43,7 @@
         
         private $conectar;
 
-        public function getConetar()
+        public function getConectar()
         {
             return $this->conectar;
         }
