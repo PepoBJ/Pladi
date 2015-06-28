@@ -149,69 +149,6 @@
 		
 		/*	**	*/
 
-		/*		SAVE 		*/
-		
-		public function save()
-		{
-			$save = $this->runSql(
-				"INSERT INTO `pregunta` (
-					`titulo`,
-					`cuerpo`,
-					`fecha`,
-					`respuestas`,
-					`ult_respuesta`,
-					`fk_id_usuario`,
-					`denuncias`,
-					`fk_id_categoria`) 
-				VALUES ( 
-					'" . $this->getTitulo() . "',
-					'" . $this->getCuerpo() . "',
-					'" . $this->getFecha() . "',
-					'" . $this->getRespuestas() . "',
-					'" . $this->getUltimaRespuesta() . "',
-					'" . $this->getIdUsuario() . "',
-					'" . $this->getDenuncias() . "',
-					'" . $this->getIdCategoria() . "'
-				);"
-			);
-
-			return $save;
-		}
-		
-		/*	**	*/	
-
-		/*		UPDATE 		*/
-		
-		public function update()
-		{
-			$save = $this->runSql(
-				"UPDATE `pregunta` SET 
-					`titulo` = '" . $this->getTitulo() . "' ,
-					`cuerpo` = '" . $this->getCuerpo() . "'  ,
-					`denuncias` = '" . $this->getDenuncias() . "' ,
-					`fk_id_categoria` = '" . $this->getIdCategoria() . "'
-				WHERE id_pregunta = '" . $this->getId() . "' ;"
-			);
-
-			return $save;
-		}
-		
-		/*	**	*/
-
-		/*		DELTE 		*/
-		
-		public function delete()
-		{
-			$save = $this->runSql(
-				"DELETE FROM `pregunta` 
-					WHERE id_pregunta = '" . $this->getId() . "' ;"
-			);
-
-			return $save;
-		}
-		
-		/*	**	*/
-
 	}
 
 /*		FIN CLASS PREGUNTA		*/

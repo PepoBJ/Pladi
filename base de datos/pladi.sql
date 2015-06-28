@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `pregunta` (
   `titulo` varchar(300) CHARACTER SET latin1 NOT NULL,
   `cuerpo` text CHARACTER SET latin1 NOT NULL,
   `fecha` datetime NOT NULL,
-  `repuestas` int(11) NOT NULL DEFAULT '0',
+  `respuestas` int(11) NOT NULL DEFAULT '0',
   `ult_respuesta` datetime DEFAULT NULL,
   `fk_id_usuario` int(11) NOT NULL,
   `denuncias` int(11) NOT NULL DEFAULT '0',
