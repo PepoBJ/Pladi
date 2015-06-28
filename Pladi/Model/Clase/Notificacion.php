@@ -72,56 +72,7 @@
 		}
 		
 		/*	**	*/
-
-		/*		SAVE 		*/
 		
-		public function save()
-		{
-			$save = $this->runSql(
-				"INSERT INTO `notificacion` (
-					`fecha`,
-					`visto`,
-					`fk_id_pregunta`) 
-				VALUES ( 
-					'" . $this->getFecha() . "',
-					'" . $this->getVisto() . "',
-					'" . $this->getIdPregunta() . "'
-				);"
-			);
-
-			return $save;
-		}
-		
-		/*	**	*/	
-
-		/*		UPDATE 		*/
-		
-		public function update()
-		{
-			$save = $this->runSql(
-				"UPDATE `notificacion` SET 
-					`visto` = '" . $this->getVisto() . "'   
-				WHERE id_notificacion = '" . $this->getId() . "' ;"
-			);
-
-			return $save;
-		}
-		
-		/*	**	*/
-
-		/*		DELTE 		*/
-		
-		public function delete()
-		{
-			$save = $this->runSql(
-				"DELETE FROM `notificacion` 
-					WHERE id_notificacion = '" . $this->getId() . "' ;"
-			);
-
-			return $save;
-		}
-		
-		/*	**	*/
 	}
 
 	/*		FIN CLASS NOTIFICACION		*/

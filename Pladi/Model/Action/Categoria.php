@@ -5,7 +5,7 @@
 
 	class Categoria extends ModeloBase
 	{
-		/*		CONSTRUCTO 		*/
+		/*		CONSTRUCTOR 		*/
 		
 		public function __construct()
 		{

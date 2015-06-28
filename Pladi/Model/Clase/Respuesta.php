@@ -102,61 +102,6 @@
 		
 		/*	**	*/
 
-		/*		SAVE 		*/
-		
-		public function save()
-		{
-			$save = $this->runSql(
-				"INSERT INTO `respuesta` (
-					`titulo`,
-					`cuerpo`,
-					`fecha`,
-					`denuncias`,
-					`fk_id_pregunta`) 
-				VALUES ( 
-					'" . $this->getTitulo() . "',
-					'" . $this->getCuerpo() . "',
-					'" . $this->getFecha() . "',
-					'" . $this->getDenuncias() . "',
-					'" . $this->getIdPregunta() . "'
-				);"
-			);
-
-			return $save;
-		}
-		
-		/*	**	*/	
-
-		/*		UPDATE 		*/
-		
-		public function update()
-		{
-			$save = $this->runSql(
-				"UPDATE `respuesta` SET 
-					`titulo` = '" . $this->getTitulo() . "' ,
-					`cuerpo` = '" . $this->getCuerpo() . "'  ,
-					`denuncias` = '" . $this->getDenuncias() . "'    
-				WHERE id_respuesta = '" . $this->getId() . "' ;"
-			);
-
-			return $save;
-		}
-		
-		/*	**	*/
-
-		/*		DELTE 		*/
-		
-		public function delete()
-		{
-			$save = $this->runSql(
-				"DELETE FROM `respuesta` 
-					WHERE id_respuesta = '" . $this->getId() . "' ;"
-			);
-
-			return $save;
-		}
-		
-		/*	**	*/
 	}
 
 	/*		FIN CLASS RESPUESTA		*/

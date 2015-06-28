@@ -36,7 +36,7 @@
 		
 		/*	**	*/
 
-		/*		CATEGORIO POR ID 		*/
+		/*		CATEGORIA POR ID 		*/
 		
 		public static function id($id)
 		{
