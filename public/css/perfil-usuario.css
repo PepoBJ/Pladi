@@ -7,3 +7,24 @@
 	background: rgba(0,0,0,.9);
 }
 
+
+#main #perfil {
+	margin: 2em 0;
+}
+
+#perfil .perfil__informacion a {
+	color: #000;
+	text-decoration: none;
+	line-height: 2;
+}
+#perfil .perfil__informacion a:hover {
+	text-decoration: underline;
+}
+
+#perfil .informacion__url {
+	font-size: 1.5em;
+}
+#perfil .informacion__url a {
+	line-height: 3;
+	font-weight: bold;
+}

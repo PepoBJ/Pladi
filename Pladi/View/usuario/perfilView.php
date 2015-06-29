@@ -20,26 +20,33 @@
 	<main id="main">
 		<section id="perfil">
 			<div class="grupo">
-				<div class="caja">
-					<img class="centro circulo" src="<?= $usuario->getPerfilUsuario()->getFoto()?>" alt="">
+				<div class="perfil__imagen caja tablet-50 web-30">
+					<img class="movil-40 tablet-70 centro circulo" src="<?= $usuario->getPerfilUsuario()->getFoto()?>" alt="">
 				</div>
-				<div class="caja">
-					<h1><?= $usuario->getNombre() . " " . $usuario->getApellido();?></h1>
+				<div class="perfil__informacion caja tablet-50 web-70">					
+					<div class="grupo no-padding">
+						<div class="informacion__url caja centrar-contenido">
+							<a href="<?= $helper->url('usuario', 'get', $usuario->getId());?>">
+								@<?= $usuario->getNombre() ?>
+							</a>
+						</div>
+						<div class="informacion__nombre caja">
+							<a href="#" class="icon-usuario espacio"><?= $usuario->getNombre() . " " . $usuario->getApellido();?></a>
+						</div>
+						<div class="imformacion__email caja">
+							<a href="#" class="icon-correo espacio"><?=$usuario->getEmail();?></a>
+						</div>
+						<div class="informacion__twitter caja">
+							<a href="<?=$usuario->getPerfilUsuario()->getTwitter();?>" class="icon-twitter espacio">Twitter/<?= $usuario->getNombre()?></a>
+						</div>
+						<div class="informacion__facebook caja">
+							<a href="<?=$usuario->getPerfilUsuario()->getFacebook();?>" class="icon-facebook espacio">Facebook/<?= $usuario->getNombre()?></a>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="grupo">
-				<div class="caja"><?=$usuario->getEmail();?></div>
-				<div class="caja"><?=$usuario->getTipo();?></div>
-				<div class="caja"><?=$usuario->getEstado();?></div>
-				<div class="caja"><?=$usuario->getPerfilUsuario()->getTwitter();?></div>
-				<div class="caja"><?=$usuario->getPerfilUsuario()->getFacebook();?></div>
 			</div>
 		</section>
 	</main>
-
-	<footer id="footer">
-		<?= $helper->pladi_footer()?>
-	</footer>
 
 	<!-- scripts-->
 	<script src="/js/jquery.js"></script>
