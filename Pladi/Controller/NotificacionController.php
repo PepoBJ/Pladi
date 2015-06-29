@@ -12,7 +12,7 @@
 		{
 			echo '<pre>';
 			
-			var_dump(NM::id(2));
+			var_dump(NM::all());
 		}
 		
 		/*	**	*/

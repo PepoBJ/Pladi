@@ -11,8 +11,8 @@
 		public function index()
 		{
 			echo '<pre>';
-			PM::deleteQuestion(2, "titulo test", "este es el cuerpo", "", 5);
-			var_dump(PM::all());
+
+			var_dump(PM::all()[0]);
 		}
 		
 		/*	**	*/

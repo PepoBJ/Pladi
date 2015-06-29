@@ -13,6 +13,13 @@
 			var_dump(RM::all());
 		}
 
+		public function question($id)
+		{
+			echo '<pre>';
+
+			var_dump(RM::replysForQuestionId($id));
+		}
+
 	}
 
 /*		FIN CLASS RESPUESTA CONTROLLER		*/

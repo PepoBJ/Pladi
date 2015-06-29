@@ -102,7 +102,20 @@ CREATE TRIGGER `insert_pregunta` AFTER INSERT ON `respuesta`
  FOR EACH ROW BEGIN
   INSERT INTO `notificacion` (`fecha`,`visto`,`fk_id_pregunta`) VALUES
   (NEW.fecha,'0',NEW.fk_id_pregunta);   
-  UPDATE pregunta SET ult_respuesta = NEW.fecha, repuestas = repuestas + 1 WHERE id_pregunta = NEW.fk_id_pregunta;
+  UPDATE pregunta SET ult_respuesta = NEW.fecha, respuestas = respuestas + 1 WHERE id_pregunta = NEW.fk_id_pregunta;
+END
+//
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER `delete_respuesta` AFTER DELETE ON `respuesta`
+ FOR EACH ROW BEGIN
+  DECLARE numrespuestas INT(11);
+  SET numrespuestas = (SELECT respuestas FROM pregunta WHERE id_pregunta = OLD.fk_id_pregunta);
+
+  IF numrespuestas > -1 THEN
+    UPDATE pregunta SET respuestas = respuestas - 1 WHERE id_pregunta = OLD.fk_id_pregunta;
+  END IF;
 END
 //
 DELIMITER ;

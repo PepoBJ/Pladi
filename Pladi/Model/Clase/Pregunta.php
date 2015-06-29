@@ -76,15 +76,15 @@
 
 		/*		 RESPUESTAS		*/
 		
-		private $respuesta;
+		private $respuestas;
 		
-		public function setRespuestas($respuesta = 0)
+		public function setRespuestas($respuestas = 0)
 		{
-			$this->respuesta = $respuesta > 0 ? $respuesta : 0;
+			$this->respuestas = $respuestas > 0 ? $respuestas : 0;
 		}
 		public function getRespuestas()
 		{
-			return $this->respuesta;
+			return $this->respuestas;
 		}
 		
 		/*	**	*/
@@ -145,6 +145,21 @@
 		public function getIdCategoria()
 		{
 			return $this->fk_id_categoria;
+		}
+		
+		/*	**	*/
+
+		/*		 OBJETO RESPUESTAS		*/
+		
+		private $obj_respuestas;
+		
+		public function setOBJRespuestas($obj_respuestas = NULL)
+		{
+			$this->obj_respuestas =  is_array($obj_respuestas) ? $obj_respuestas : NULL;
+		}
+		public function getOBJRespuestas()
+		{
+			return $this->obj_respuestas;
 		}
 		
 		/*	**	*/

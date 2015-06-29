@@ -51,6 +51,21 @@
 		
 		/*	**	*/
 
+		/*		RESPUESTA DE UNA SOLA PREGUNTA 		*/
+		
+		public static function replysForQuestionId($id_question)
+		{
+			$a_respuesta = new ARespuesta();
+
+			$respuestas = $a_respuesta->getBy('fk_id_pregunta', $id_question, self::RESPUESTA_NAMESPACE);
+
+			if(! isset($respuestas)) return null;
+
+			return $respuestas;
+		}
+		
+		/*	**	*/
+
 		/*		SAVE 		*/
 		
 		public static function saveReply($titulo, $cuerpo, $fecha, $denuncias, $id_pregunta)

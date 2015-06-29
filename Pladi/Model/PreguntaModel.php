@@ -1,5 +1,6 @@
 <?php namespace Pladi\Model;
 
+	use Pladi\Model\RespuestaModel as RM;
 	use Pladi\Model\Action\Pregunta as APregunta;
 	use Pladi\Model\Clase\Pregunta as CPregunta;
 
@@ -30,6 +31,17 @@
 			$preguntas = $a_pregunta->getAll(self::PREGUNTA_CONSTANTE);
 
 			if(! isset($preguntas)) return null;
+
+			foreach ($preguntas as $index => $pregunta_actual) {
+				
+				$respuestas = RM::replysForQuestionId($pregunta_actual->getId(), RM::RESPUESTA_NAMESPACE);
+
+				if ( ! isset($respuestas) ) continue;
+
+				$pregunta_actual->setOBJRespuestas($respuestas);
+				$preguntas[$index] = $pregunta_actual;
+
+			}
 
 			return $preguntas;
 		}
