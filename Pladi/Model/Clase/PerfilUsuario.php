@@ -49,6 +49,8 @@
 		}
 		public function getFoto()
 		{
+			if ($this->foto == NULL) return NULL;
+			
 			return self::PATH . $this->foto;
 		}
 		
