@@ -1,0 +1,21 @@
+
+#menu a {
+	color: #fff;
+	text-decoration: none;
+	display: inline-block;
+	font-size: .9em;
+}
+#menu a:hover {
+	color: rgba(255, 255, 255, .5);
+}
+#menu a span {
+	display: none;
+}
+
+/* Desde tablet */
+@media all and (min-width:768px){
+	#menu a span {
+		display: inline-block;
+	}
+	
+}

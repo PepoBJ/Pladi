@@ -16,9 +16,14 @@ function eventos_click()
 	$('.login__boton').on('click', function() {
 		location.href = root + "/index/login";
 	});
-	
+	$('.logout__boton').on('click', function() {
+		location.href = root + "/index/logout";
+	});	
 	$('.banner__boton > button').on('click', function() {
 		location.href = root + "/index/registro";
+	});
+	$('.logo__home').children().on('click', function () {
+		location.href = root + "/index/home";
 	});
 }
 

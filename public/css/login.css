@@ -3,3 +3,11 @@
 	font-size: .8em;
 	line-height: 2;
 }
+
+/* Hasta tablet */
+@media all and (max-width:767px){
+	#login .formulario .formulario__registro {
+		display: block;
+		text-align: center;
+	}
+}

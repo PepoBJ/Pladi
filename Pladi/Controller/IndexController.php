@@ -44,6 +44,11 @@
 			$this->view('Login', $data);
 
 		}
+		public function logout()
+		{
+			UM::logout();
+			$this->redirect();
+		}
 
 		public function registro()
 		{
@@ -107,10 +112,15 @@
 		public function home()
 		{
 			session_start();
-			UM::logout();
+			
 			if(isset($_SESSION['user']['id']) && isset($_SESSION['user']['email']))
 			{
-				die('hola bienvenido');
+				$user = UM::id($_SESSION['user']['id']);
+
+				$data = array(
+					"usuario" => $user
+				);
+				$this->view('Home', $data);
 			}
 			else
 			{

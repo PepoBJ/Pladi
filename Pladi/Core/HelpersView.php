@@ -45,7 +45,39 @@
                 </div>
             </div>';
         }
+        /*      **      */
+
+        /*        HOME MENU PLADI         */
         
+        public function pladi_home_menu($usuario)
+        {
+            return 
+            '<div class="grupo base-tabla centrar-contenido">
+                <div class="caja logo logo__home base-1-6">
+                    <img class="logo__img" src="/img/logo.png" alt="logo">
+                    <span class="logo__titulo">PlaDi</span>
+                </div>
+                <div class="caja base-1-6 medio">
+                    <a href="#" class="usuario__nombre icon-usuario espacio"><span>'.$usuario.'</span></a>
+                </div>
+                <div class="caja base-1-6 medio">
+                    <a href="#" class="usuario__preguntas icon-tarjeta espacio"><span>Mis Preguntas</span></a>
+                </div>
+                <div class="caja base-1-6 medio">
+                    <a href="#" class="usuario__notificaciones icon-fecha espacio"><span>Notificaciones</span></a>
+                </div>
+                <div class="caja base-1-6 medio">
+                    <a href="#" class="buscar icon-pin espacio derecha"><span>Buscar</span></a>
+                </div>
+                <div class="caja logout base-1-6 medio">
+                    <button class="logout__boton derecha">Logout</button>
+                </div>
+            </div>' ;
+        }
+        
+        /*    **    */
+
+        /*        FOOTER PLADI         */
         public function pladi_footer()
         {
             return 

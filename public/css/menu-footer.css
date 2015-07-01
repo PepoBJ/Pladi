@@ -14,13 +14,14 @@ header {
 	cursor: pointer;
 	font-weight: bold;
 }
-.login .login__boton {
+.login .login__boton, .logout .logout__boton {
 	background: transparent;
 	border: 1px solid #FFF;
 	cursor: pointer;
 	border-radius: 3px;
 	color: #FFF;
 	line-height: 2;
+	outline: none;
 } 
  /*  */
  .menu-fixed {
