@@ -10,7 +10,7 @@
 
 		/*		CONSTANTE NAMESPACES CLASE USUARIO Y PERFIL 		*/
 		
-		const USER_NAMESPACE = 'Pladi\Model\Clase\Usuario';
+		const USER_NAMESPACE   = 'Pladi\Model\Clase\Usuario';
 		const PERFIL_NAMESPACE = 'Pladi\Model\Clase\PerfilUsuario';
 		
 		/*	**	*/
@@ -30,8 +30,8 @@
 		public static function all()
 		{
 			$a_user = new AUsuario();
-
-			$users = $a_user->getAll(self::USER_NAMESPACE);
+			
+			$users  = $a_user->getAll(self::USER_NAMESPACE);
 
 			if (!isset($users)) return null;
 
@@ -56,14 +56,14 @@
 		/*		USUARIO POR ID 		*/
 		
 		public static function id($id)
-		{
+		{			
 			$a_user = new AUsuario();
 			$user_actual = $a_user->getById($id, self::USER_NAMESPACE);
 
 			if (!isset($user_actual)) return null;
 
-			$a_profile = new APerfilUsuario();
-
+			$a_profile    = new APerfilUsuario();
+			
 			$user_profile = $a_profile->getBy('fk_id_usuario', $user_actual->getId(), self::PERFIL_NAMESPACE)[0];
 
 			if ( isset($user_profile))
@@ -114,8 +114,8 @@
 
 			if (!isset($user_actual)) return null;
 
-			$a_profile = new APerfilUsuario();
-
+			$a_profile    = new APerfilUsuario();
+			
 			$user_profile = $a_profile->getBy('fk_id_usuario', $user_actual->getId(), self::PERFIL_NAMESPACE)[0];
 
 			if ( isset($user_profile))
@@ -138,8 +138,8 @@
 			
 			if ($user->getContrasena() == md5($pass))
 			{
-				session_start();
-				$_SESSION['user']['id'] = $user->getId();
+				@session_start();
+				$_SESSION['user']['id']    = $user->getId();
 				$_SESSION['user']['email'] = $user->getEmail();
 				return true;
 			}
@@ -153,7 +153,7 @@
 		
 		public static function logout()
 		{
-			session_start();
+			@session_start();
 			unset($_SESSION['user']);
 		}		
 		

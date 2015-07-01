@@ -1,5 +1,6 @@
 <?php namespace Pladi\Model\Clase;
-
+		
+	use Pladi\Helpers\Security as SS;
 
 	class Categoria
 	{
@@ -17,6 +18,8 @@
 		
 		public function setId($id_categoria)
 		{
+			$id_categoria = SS::clean_input($id_categoria);
+
 			$this->id_categoria = $id_categoria > 0 ? $id_categoria : 0;
 		}
 		public function getId()
@@ -32,6 +35,8 @@
 		
 		public function setNombre($nombre = "")
 		{
+			$nombre = SS::clean_input($nombre);
+
 			$this->nombre = $nombre != "" ? $nombre : "Establecido por defecto";
 		}
 		public function getNombre()

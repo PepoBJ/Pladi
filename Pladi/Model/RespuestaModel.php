@@ -17,7 +17,7 @@
 		public function __construct()
 		{
 
-		}
+		}	
 		
 		/*	**	*/
 
@@ -26,8 +26,8 @@
 		public static function all()
 		{
 			$a_respuesta = new ARespuesta();
-
-			$respuestas = $a_respuesta->getAll(self::RESPUESTA_NAMESPACE);
+			
+			$respuestas  = $a_respuesta->getAll(self::RESPUESTA_NAMESPACE);
 
 			if(! isset($respuestas)) return null;
 
@@ -41,8 +41,8 @@
 		public static function id($id)
 		{
 			$a_respuesta = new ARespuesta();
-
-			$respuesta = $a_respuesta->getById($id, self::RESPUESTA_NAMESPACE);
+			
+			$respuesta   = $a_respuesta->getById($id, self::RESPUESTA_NAMESPACE);
 
 			if(! isset($respuesta)) return null;
 
@@ -56,8 +56,8 @@
 		public static function replysForQuestionId($id_question)
 		{
 			$a_respuesta = new ARespuesta();
-
-			$respuestas = $a_respuesta->getBy('fk_id_pregunta', $id_question, self::RESPUESTA_NAMESPACE);
+			
+			$respuestas  = $a_respuesta->getBy('fk_id_pregunta', $id_question, self::RESPUESTA_NAMESPACE);
 
 			if(! isset($respuestas)) return null;
 

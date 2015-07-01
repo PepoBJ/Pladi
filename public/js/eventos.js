@@ -1,19 +1,32 @@
+var root = location.protocol + '//' + location.host;
+
 $(document).ready(function()
 {
 	menu_pegajoso(); 
 	perfil_usuario();
+	eventos_click();
 	
-	$('.logo').children().on('click', function () {
-		location.href = "/";
-	})
 });
 
+function eventos_click()
+{
+	$('.logo').children().on('click', function () {
+		location.href = root + "/";
+	});
+	$('.login__boton').on('click', function() {
+		location.href = root + "/index/login";
+	});
+	
+	$('.banner__boton > button').on('click', function() {
+		location.href = root + "/index/registro";
+	});
+}
 
 function menu_pegajoso()
 {
-	var menu = $('#menu');
+	var menu   = $('#menu');
 	var altura = menu.offset().top;
-	var back = menu.css('background-color');
+	var back   = menu.css('background-color');
 	$(window).on('scroll', function()
 	{
 		if ( $(window).scrollTop() > altura )
@@ -37,6 +50,6 @@ function perfil_usuario()
 {
 	var usuarios = $('#usuarios img');
 	usuarios.on('click', function(){
-		location.href = "usuario/get/" + this.id;
+		location.href = root + "/usuario/get/" + this.id;
 	})
 }

@@ -3,8 +3,8 @@
 }
 
 #menu {
-	color: #FFF;
 	background: rgba(0,0,0,.9);
+	color: #FFF;
 }
 
 
@@ -14,8 +14,8 @@
 
 #perfil .perfil__informacion a {
 	color: #000;
-	text-decoration: none;
 	line-height: 2;
+	text-decoration: none;
 }
 #perfil .perfil__informacion a:hover {
 	text-decoration: underline;
@@ -25,6 +25,6 @@
 	font-size: 1.5em;
 }
 #perfil .informacion__url a {
-	line-height: 3;
 	font-weight: bold;
+	line-height: 3;
 }

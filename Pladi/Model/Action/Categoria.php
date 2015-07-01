@@ -38,8 +38,8 @@
 		{
 			$save = $this->runSql(
 				"UPDATE `categoria` SET 
-					`nombre` = '" . $category->getNombre() . "'  
-				WHERE id_categoria = '" . $category->getId() . "' ;"
+					`nombre`           = '" . $category->getNombre() . "'  
+					WHERE id_categoria = '" . $category->getId() . "' ;"
 			);
 
 			return $save;

@@ -41,8 +41,8 @@
 		public static function id($id)
 		{
 			$a_notificacion = new ANotificacion();
-
-			$notificacion = $a_notificacion->getById($id, self::NOTIFICACION_CONSTANTE);
+			
+			$notificacion   = $a_notificacion->getById($id, self::NOTIFICACION_CONSTANTE);
 
 			if(! isset($notificacion)) return null;
 

@@ -7,12 +7,12 @@ header {
 	transition: all ease-out .7s;	
 }
 .logo .logo__img {
-	vertical-align: middle;
 	cursor: pointer;
+	vertical-align: middle;
 }
 .logo .logo__titulo {
-	font-weight: bold;
 	cursor: pointer;
+	font-weight: bold;
 }
 .login .login__boton {
 	background: transparent;

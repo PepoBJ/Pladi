@@ -43,8 +43,8 @@
 		{
 			$save = $this->runSql(
 				"UPDATE `notificacion` SET 
-					`visto` = '" . $notify->getVisto() . "'   
-				WHERE id_notificacion = '" . $notify->getId() . "' ;"
+					`visto`               = '" . $notify->getVisto() . "'   
+					WHERE id_notificacion = '" . $notify->getId() . "' ;"
 			);
 
 			return $save;

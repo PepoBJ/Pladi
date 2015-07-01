@@ -48,13 +48,13 @@
 		{
 			$save = $this->runSql(
 				"UPDATE `usuario` SET 
-					`nombre` = '" . $user->getNombre() . "', 
-					`apellido` = '" . $user->getApellido() . "', 
-					`email` = '" . $user->getEmail() . "', 
-					`contrasena` ='" . md5($user->getContrasena()) . "',
-					`tipo` = '" . $user->getTipo() . "', 
-					`estado` = '" . $user->getEstado() . "' 
-				WHERE id_usuario = '" . $user->getId() . "' ;"
+					`nombre`         = '" . $user->getNombre() . "', 
+					`apellido`       = '" . $user->getApellido() . "', 
+					`email`          = '" . $user->getEmail() . "', 
+					`contrasena`     ='" . md5($user->getContrasena()) . "',
+					`tipo`           = '" . $user->getTipo() . "', 
+					`estado`         = '" . $user->getEstado() . "' 
+					WHERE id_usuario = '" . $user->getId() . "' ;"
 			);
 
 			return $save;

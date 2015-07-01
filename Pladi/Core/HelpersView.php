@@ -7,7 +7,7 @@
         
         /*		BRINDA EL URL PARA LAS VISTAS 		*/
         
-        public function url($controlador = "", $accion = "", $param)
+        public function url($controlador = "", $accion = "", $param = "")
         {
             $controlador = $controlador == "" ? VariablesGlobales::$controlador_defecto : $controlador;
             $accion = $accion == "" ?VariablesGlobales::$accion_defecto : $accion;

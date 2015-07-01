@@ -1,4 +1,6 @@
 <?php namespace Pladi\Model\Clase;
+	
+	use Pladi\Helpers\Security as SS;
 
 	class Pregunta 
 	{
@@ -17,6 +19,8 @@
 		
 		public function setId($id_pregunta = 0)
 		{
+			$id_pregunta = SS::clean_input($id_pregunta);
+
 			$this->id_pregunta = $id_pregunta > 0 ? $id_pregunta : 0;
 		}
 		public function getId()
@@ -32,6 +36,8 @@
 		
 		public function setTitulo($titulo = "")
 		{
+			$titulo = SS::clean_input($titulo);
+
 			$this->titulo = $titulo != "" ? $titulo : "Establecido por defecto";
 		}
 		public function getTitulo()
@@ -47,6 +53,8 @@
 		
 		public function setCuerpo($cuerpo = "")
 		{
+			$cuerpo = SS::clean_input($cuerpo);
+
 			$this->cuerpo = $cuerpo != "" ? $cuerpo : "Establecido por defecto";
 		}
 		public function getCuerpo()
@@ -62,6 +70,8 @@
 		
 		public function setFecha($fecha)
 		{
+			$fecha = SS::clean_input($fecha);
+
 			date_default_timezone_set('America/Lima');
 			$date = date('Y-m-d H:i:s');
 
@@ -80,6 +90,8 @@
 		
 		public function setRespuestas($respuestas = 0)
 		{
+			$respuestas = SS::clean_input($respuestas);
+
 			$this->respuestas = $respuestas > 0 ? $respuestas : 0;
 		}
 		public function getRespuestas()
@@ -95,6 +107,8 @@
 		
 		public function setUltimaRespuesta($ult_respuesta = "")
 		{
+			$ult_respuesta = SS::clean_input($ult_respuesta);
+
 			$this->ult_respuesta = $ult_respuesta != "" ? $ult_respuesta : NULL;
 		}
 		public function getUltimaRespuesta()
@@ -110,6 +124,8 @@
 		
 		public function setIdUsuario($fk_id_usuario = 0)
 		{
+			$fk_id_usuario = SS::clean_input($fk_id_usuario);
+
 			$this->fk_id_usuario = $fk_id_usuario > 0 ? $fk_id_usuario : 0;
 		}
 		public function getIdUsuario()
@@ -125,6 +141,8 @@
 		
 		public function setDenuncias($denuncias = 0)
 		{
+			$denuncias = SS::clean_input($denuncias);
+
 			$this->denuncias = $denuncias > 0 ? $denuncias : 0;
 		}
 		public function getDenuncias()
@@ -140,6 +158,8 @@
 		
 		public function setIdCategoria($fk_id_categoria = 0)
 		{
+			$fk_id_categoria = SS::clean_input($fk_id_categoria);
+
 			$this->fk_id_categoria = $fk_id_categoria > 0 ? $fk_id_categoria : 0;
 		}
 		public function getIdCategoria()

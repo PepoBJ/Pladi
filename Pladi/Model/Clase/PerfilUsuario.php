@@ -1,5 +1,7 @@
 <?php namespace Pladi\Model\Clase;
 	
+	use Pladi\Helpers\Security as SS;
+
 	class PerfilUsuario 
 	{
 
@@ -24,6 +26,8 @@
 		
 		public function setId($id)
 		{
+			$id = SS::clean_input($id);
+
 			$this->id_perfil_usuario = $id > 0 ? $id : 0;
 		}
 		public function getId()
@@ -39,6 +43,8 @@
 		
 		public function setFoto($foto)
 		{
+			$foto = SS::clean_input($foto);
+
 			$this->foto = $foto != "" ? $foto : NULL ;
 		}
 		public function getFoto()
@@ -54,6 +60,8 @@
 		
 		public function setTwitter($twitter)
 		{
+			$twitter = SS::clean_input($twitter);
+
 			$this->twitter = $twitter != "" ? $twitter : NULL;
 		}
 		public function getTwitter()
@@ -69,6 +77,8 @@
 		
 		public function setFacebook($facebook)
 		{
+			$facebook = SS::clean_input($facebook);
+
 			$this->facebook = $facebook != "" ? $facebook : NULL;
 		}
 		public function getFacebook()
@@ -84,6 +94,8 @@
 		
 		public function setIdUsuario($idUsuario)
 		{
+			$idUsuario = SS::clean_input($idUsuario);
+
 			$this->fk_id_usuario = $idUsuario > 0 ? $idUsuario : 0;
 		}
 		public function getIdUsuario()

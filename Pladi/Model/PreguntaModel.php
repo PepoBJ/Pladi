@@ -27,8 +27,8 @@
 		public static function all()
 		{
 			$a_pregunta = new APregunta();
-
-			$preguntas = $a_pregunta->getAll(self::PREGUNTA_CONSTANTE);
+			
+			$preguntas  = $a_pregunta->getAll(self::PREGUNTA_CONSTANTE);
 
 			if(! isset($preguntas)) return null;
 
@@ -53,8 +53,8 @@
 		public static function id($id)
 		{
 			$a_pregunta = new APregunta();
-
-			$pregunta = $a_pregunta->getById($id, self::PREGUNTA_CONSTANTE);
+			
+			$pregunta   = $a_pregunta->getById($id, self::PREGUNTA_CONSTANTE);
 
 			if(! isset($pregunta)) return null;
 

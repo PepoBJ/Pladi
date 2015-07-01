@@ -56,11 +56,11 @@
 		{
 			$save = $this->runSql(
 				"UPDATE `pregunta` SET 
-					`titulo` = '" . $question->getTitulo() . "' ,
-					`cuerpo` = '" . $question->getCuerpo() . "'  ,
-					`denuncias` = '" . $question->getDenuncias() . "' ,
+					`titulo`          = '" . $question->getTitulo() . "' ,
+					`cuerpo`          = '" . $question->getCuerpo() . "'  ,
+					`denuncias`       = '" . $question->getDenuncias() . "' ,
 					`fk_id_categoria` = '" . $question->getIdCategoria() . "'
-				WHERE id_pregunta = '" . $question->getId() . "' ;"
+					WHERE id_pregunta = '" . $question->getId() . "' ;"
 			);
 
 			return $save;

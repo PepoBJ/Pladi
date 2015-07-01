@@ -52,10 +52,10 @@
 
 			$save = $this->runSql(
 				"UPDATE `perfil_usuario` 
-					SET `foto` = $foto, 
-					`twitter` = $twitter, 
-					`facebook` = $facebook 
-				WHERE `fk_id_usuario` = '" . $user_profile->getIdUsuario() . "' ;"
+					SET `foto`            = $foto, 
+					`twitter`             = $twitter, 
+					`facebook`            = $facebook 
+					WHERE `fk_id_usuario` = '" . $user_profile->getIdUsuario() . "' ;"
 			);
 
 			return $save;

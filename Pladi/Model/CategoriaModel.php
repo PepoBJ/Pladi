@@ -26,8 +26,8 @@
 		public static function all()
 		{
 			$a_categoria = new ACategoria();
-
-			$categorias = $a_categoria->getAll(self::CATEGORIA_NAMESPACE);
+			
+			$categorias  = $a_categoria->getAll(self::CATEGORIA_NAMESPACE);
 
 			if(! isset($categorias)) return null;
 
@@ -41,8 +41,8 @@
 		public static function id($id)
 		{
 			$a_categoria = new ACategoria();
-
-			$cateoria = $a_categoria->getById($id, self::CATEGORIA_NAMESPACE);
+			
+			$cateoria    = $a_categoria->getById($id, self::CATEGORIA_NAMESPACE);
 
 			if(!isset($cateoria)) return null;
 
@@ -57,7 +57,7 @@
 		public static function busqueda($nombre)
 		{
 			$a_categoria = new ACategoria();
-			$categorias = $a_categoria->runSql(
+			$categorias  = $a_categoria->runSql(
 							"SELECT * FROM " . $a_categoria->table() . " WHERE nombre LIKE '%$nombre%'",
 							self::CATEGORIA_NAMESPACE);
 			

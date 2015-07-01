@@ -47,10 +47,10 @@
 		{
 			$save = $this->runSql(
 				"UPDATE `respuesta` SET 
-					`titulo` = '" . $reply->getTitulo() . "' ,
-					`cuerpo` = '" . $reply->getCuerpo() . "'  ,
-					`denuncias` = '" . $reply->getDenuncias() . "'    
-				WHERE id_respuesta = '" . $reply->getId() . "' ;"
+					`titulo`           = '" . $reply->getTitulo() . "' ,
+					`cuerpo`           = '" . $reply->getCuerpo() . "'  ,
+					`denuncias`        = '" . $reply->getDenuncias() . "'    
+					WHERE id_respuesta = '" . $reply->getId() . "' ;"
 			);
 
 			return $save;

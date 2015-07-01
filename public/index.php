@@ -18,3 +18,4 @@
 	    $controllerObj = $con->cargarControlador(VariablesGlobales::$controlador_defecto);
 		$con->lanzarAccion($controllerObj);
 	}
+	
