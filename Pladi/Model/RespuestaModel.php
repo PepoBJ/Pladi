@@ -51,6 +51,19 @@
 		
 		/*	**	*/
 
+		/*		DENUNCIAR RESPUESTA 		*/
+		
+		public static function denunciarRespuesta($id)
+		{
+			$respuesta = self::id($id);
+
+			if(! isset($respuesta)) return false;
+
+			return self::updateReply($respuesta->getId(), $respuesta->getTitulo(), $respuesta->getCuerpo(), $respuesta->getDenuncias() + 1);
+		}
+		
+		/*	**	*/
+
 		/*		RESPUESTA DE UNA SOLA PREGUNTA 		*/
 		
 		public static function replysForQuestionId($id_question)

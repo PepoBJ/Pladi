@@ -81,6 +81,19 @@
 		
 		/*	**	*/
 
+		/*		DENUNCIAR PREGUNTA 		*/
+		
+		public static function denunciarPregunta($id)
+		{
+			$pregunta = self::id($id);
+
+			if(! isset($pregunta)) return false;
+
+			return self::updateQuestion($pregunta->getId(), $pregunta->getTitulo(), $pregunta->getCuerpo(), $pregunta->getDenuncias() + 1, $pregunta->getIdCategoria());
+		}
+		
+		/*	**	*/
+
 		/*		SAVE 		*/
 		
 		public static function saveQuestion($titulo, $cuerpo, $fecha, $respuestas, $ultima_repuesta, $id_usuario, $denuncias, $id_categoria)

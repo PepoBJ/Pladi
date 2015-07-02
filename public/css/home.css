@@ -30,6 +30,7 @@
 }
 .pregunta__titulo h2, .respuesta__titulo h2 {
 	text-decoration: underline;
+	cursor: default;
 }
 .pregunta__autor {
 	color: #555;
@@ -37,6 +38,10 @@
 	font-size: .75em;
 	font-weight: 600;
 	text-decoration: none;
+	vertical-align: top;
+}
+.pregunta__autor:before {
+	vertical-align: top;
 }
 .pregunta__autor:hover {
 	text-decoration: underline;

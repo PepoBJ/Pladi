@@ -40,7 +40,7 @@
 						</section>
 						<footer class="pregunta__footer">
 							<a href="#" class="pregunta__categoria"><?=$pregunta->getCategoria()->getNombre()?></a>
-							<a href="#" class="pregunta__comentarios toogle__comentario">
+							<a class="pregunta__comentarios toogle__comentario">
 								<svg class="svg-bubble svg-icon" viewBox="0 0 20 20">
 									<g>
 										<path d="M6.6,12.6l-3.1,3.1 l0-10.3c0-0.7,0.5-1.2,1.2-1.2h10.6c0.7,0,1.2,0.5,1.2,1.2v6c0,0.7-0.5,1.2-1.2,1.2H6.6z"></path>
@@ -52,11 +52,11 @@
 								</svg>
 								<span><?=$pregunta->getRespuestas()?></span>
 							</a>
-							<a href="#" class="pregunta__denuncias">
+							<a class="pregunta__denuncias">
 								<svg class="svg-bolt svg-icon" viewBox="0 0 20 20"><g><polygon points="14,7.4 9,7.4 9,1 4,11.6 9,11.6 9,18"></polygon></g></svg>
 								<span><?=$pregunta->getDenuncias()?></span>
 							</a>
-							<a href="#" class="pregunta__denunciar derecha">Denunciar</a>
+							<a class="pregunta__denunciar derecha" data-id="<?=$pregunta->getId()?>">Denunciar</a>
 						</footer>
 					</div>
 					<div class="limpiar"></div>
@@ -76,11 +76,11 @@
 										</div>							
 									</section>
 									<footer class="respuesta__footer">
-										<a href="#" class="respuesta__denuncias">
+										<a class="respuesta__denuncias">
 											<svg class="svg-bolt svg-icon" viewBox="0 0 20 20"><g><polygon points="14,7.4 9,7.4 9,1 4,11.6 9,11.6 9,18"></polygon></g></svg>
 											<span><?=$respuesta->getDenuncias()?></span>
-											<a href="#" class="respuesta__denunciar derecha">Denunciar</a>
 										</a>
+										<a class="respuesta__denunciar derecha" data-id="<?=$respuesta->getId()?>">Denunciar</a>
 									</footer>
 								</div>
 							</div>
@@ -88,11 +88,10 @@
 					</aside>
 					
 				</article>
-			</div>
-
+			</div>		
 		<?php endforeach;?>
 	</main>
-	
+
 	<!-- scripts-->
 	<script src="/js/jquery.js"></script>
 	<script src="/js/home.js"></script>
