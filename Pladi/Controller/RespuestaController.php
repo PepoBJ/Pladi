@@ -9,7 +9,7 @@
 		public function index()
 		{
 			echo '<pre>';
-
+			//RM::saveReply("probando", "esta es una respuesta de prueba", "", "", 1);
 			var_dump(RM::all());
 		}
 

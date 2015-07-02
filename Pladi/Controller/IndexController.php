@@ -2,6 +2,7 @@
 
 	use Pladi\Core\ControladorBase;
 	use Pladi\Model\UsuarioModel as UM;
+	use Pladi\Model\PreguntaModel as PM;
 
 	class IndexController extends ControladorBase
 	{
@@ -118,7 +119,8 @@
 				$user = UM::id($_SESSION['user']['id']);
 
 				$data = array(
-					"usuario" => $user
+					"usuario" => $user,
+					"preguntas" => PM::all()
 				);
 				$this->view('Home', $data);
 			}

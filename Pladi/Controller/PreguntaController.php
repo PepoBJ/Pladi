@@ -12,7 +12,7 @@
 		{
 			echo '<pre>';
 
-			var_dump(PM::all()[0]);
+			var_dump(PM::id(1));
 		}
 		
 		/*	**	*/

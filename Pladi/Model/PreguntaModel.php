@@ -1,6 +1,8 @@
 <?php namespace Pladi\Model;
 
 	use Pladi\Model\RespuestaModel as RM;
+	use Pladi\Model\CategoriaModel as CM;
+	use Pladi\Model\UsuarioModel as UM;
 	use Pladi\Model\Action\Pregunta as APregunta;
 	use Pladi\Model\Clase\Pregunta as CPregunta;
 
@@ -33,12 +35,14 @@
 			if(! isset($preguntas)) return null;
 
 			foreach ($preguntas as $index => $pregunta_actual) {
-				
+				$pregunta_actual->setCategoria(CM::id($pregunta_actual->getIdCategoria()));
+				$pregunta_actual->setUsuario(UM::id($pregunta_actual->getIdUsuario()));
+
 				$respuestas = RM::replysForQuestionId($pregunta_actual->getId(), RM::RESPUESTA_NAMESPACE);
 
 				if ( ! isset($respuestas) ) continue;
 
-				$pregunta_actual->setOBJRespuestas($respuestas);
+				$pregunta_actual->setOBJRespuestas($respuestas);				
 				$preguntas[$index] = $pregunta_actual;
 
 			}
@@ -56,7 +60,21 @@
 			
 			$pregunta   = $a_pregunta->getById($id, self::PREGUNTA_CONSTANTE);
 
+			$pregunta->setCategoria(CM::id($pregunta->getIdCategoria()));
+			$pregunta->setUsuario(UM::id($pregunta->getIdUsuario()));
+
 			if(! isset($pregunta)) return null;
+
+			$respuesta = RM::replysForQuestionId($pregunta->getId(), RM::RESPUESTA_NAMESPACE);
+			
+			if (isset($respuesta))
+			{
+				$pregunta->setOBJRespuestas($respuesta);
+			}
+			else
+			{
+				$pregunta->setOBJRespuestas(null);
+			}
 
 			return $pregunta;
 		}

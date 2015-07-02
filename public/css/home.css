@@ -1,9 +1,14 @@
+.svg-icon {
+	height: 1.5rem;
+	vertical-align: middle;
+	width: 1.5rem;
+}
 
 #menu a {
 	color: #fff;
-	text-decoration: none;
 	display: inline-block;
 	font-size: .9em;
+	text-decoration: none;
 }
 #menu a:hover {
 	color: rgba(255, 255, 255, .5);
@@ -12,10 +17,101 @@
 	display: none;
 }
 
+#preguntas {
+	margin: 1.5em 0;
+}
+
+.pregunta {
+	border-radius: 5px;
+	border-top: 1px solid rgba(0, 0, 0, .2);
+	box-shadow: 5px 5px 15px rgba(0,0,0,.3);
+	margin: 1em 0;
+	padding: 2em .5em;
+}
+.pregunta__titulo h2, .respuesta__titulo h2 {
+	text-decoration: underline;
+}
+.pregunta__autor {
+	color: #555;
+	cursor: pointer;
+	font-size: .75em;
+	font-weight: 600;
+	text-decoration: none;
+}
+.pregunta__autor:hover {
+	text-decoration: underline;
+}
+.pregunta__fecha, .respuesta__fecha {
+	color: #555;
+	font-size: .75em;
+	font-weight: 600;
+}
+.pregunta__texto, .respuesta__texto {
+	margin: 2em 0;
+}
+
+.pregunta__footer a, .respuesta__footer a {
+	color: #000;
+	cursor: pointer;
+	display: inline-block;
+	font-size: .75em;
+	font-weight: bold;
+	margin: 0 1em;
+	text-decoration: none;
+}
+.pregunta__categoria {
+	margin-left:0 !important;
+}
+.pregunta__categoria:hover, .pregunta__denunciar:hover {
+	text-decoration: underline;
+}
+.pregunta__denunciar, .respuesta__denunciar {
+	margin-right: 0!important;
+}
+.pregunta__autor__fecha {
+	vertical-align: top;
+}
+
+.respuestas {
+	margin: 1em .5em;
+}
+.respuesta:first-child > .respuesta__borde{
+	border-radius: 5px 5px 0 0;
+	border-top: 1px solid #ccc;
+}
+.respuesta:last-child > .respuesta__borde{
+	border-bottom: 1px solid #ccc;
+	border-radius: 0 0 5px 5px;
+}
+.respuesta__borde {
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;	
+	border-top: 1px solid #ccc;
+}
+
+.respuesta__denuncias {
+	margin-left: 0 !important;
+}
+.respuesta__titulo h2 {
+	font-size: 1.1em;
+}
+.respuesta__footer {
+	margin-bottom: .5em;
+}
+
 /* Desde tablet */
 @media all and (min-width:768px){
 	#menu a span {
 		display: inline-block;
 	}
 	
+}
+
+/* Hasta movil */
+@media all and (max-width:479px) {
+	.pregunta__fecha {
+		float: none;
+		display: block;
+		line-height: 2;
+	}
 }

@@ -12,7 +12,7 @@
 		public function index()
 		{
 			echo '<pre>';
-			var_dump(CM::all());
+			var_dump(CM::id(4));
 		}
 		
 		/*	**	*/

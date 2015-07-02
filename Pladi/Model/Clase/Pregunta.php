@@ -1,6 +1,8 @@
 <?php namespace Pladi\Model\Clase;
 	
 	use Pladi\Helpers\Security as SS;
+	use Pladi\Model\Clase\Categoria as Category;
+	use Pladi\Model\Clase\Usuario as User;
 
 	class Pregunta 
 	{
@@ -167,6 +169,36 @@
 			return $this->fk_id_categoria;
 		}
 		
+		/*	**	*/
+
+		/*		OBJETO CATEGORIA 		*/
+		
+		private $categoria;
+		
+		public function setCategoria(Category $categoria = null)
+		{
+			$this->categoria = is_object($categoria) ? $categoria : null;
+		}
+		public function getCategoria()
+		{
+			return $this->categoria;
+		}
+		
+		/*	**	*/
+
+		/*		OBJETO USUARIO 		*/
+		
+		private $usuario;
+
+		public function setUsuario(User $usuario = null)
+		{
+			$this->usuario = is_object($usuario) ? $usuario : null;
+		}
+		public function getUsuario()
+		{
+			return $this->usuario;
+		}
+
 		/*	**	*/
 
 		/*		 OBJETO RESPUESTAS		*/
