@@ -21,7 +21,7 @@
 		<section id="perfil">
 			<div class="grupo">
 				<div class="perfil__imagen caja tablet-50 web-30">
-					<img class="movil-40 tablet-70 centro circulo" src="<?= $usuario->getPerfilUsuario()->getFoto() != NULL ? $usuario->getPerfilUsuario()->getFoto() : '/img/users/template.png'?>" alt="">
+					<img class="base-40 movil-30 tablet-50 web-70 centro circulo" src="<?= $usuario->getPerfilUsuario()->getFoto() != NULL ? $usuario->getPerfilUsuario()->getFoto() : '/img/users/template.png'?>" alt="">
 				</div>
 				<div class="perfil__informacion caja tablet-50 web-70">					
 					<div class="grupo no-padding">
