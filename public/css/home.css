@@ -32,6 +32,9 @@
 	text-decoration: underline;
 	cursor: default;
 }
+.pregunta__cuerpo {
+	margin-top: 1em;
+}
 .pregunta__autor {
 	color: #555;
 	cursor: pointer;

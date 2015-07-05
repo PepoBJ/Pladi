@@ -13,7 +13,7 @@
 	<header id="header">
 		<div class="container"> 
 			<nav id="menu">
-				<?= $helper->pladi_home_menu($usuario->getNombre())?>	
+				<?= $helper->pladi_home_menu($usuario->getNombre(), $usuario->getId())?>	
 			</nav>
 		</div>
 	</header>
@@ -39,7 +39,7 @@
 							</div>							
 						</section>
 						<footer class="pregunta__footer">
-							<a href="#" class="pregunta__categoria"><?=$pregunta->getCategoria()->getNombre()?></a>
+							<a href="<?=$helper->url('categoria', 'filter', $pregunta->getIdCategoria())?>" class="pregunta__categoria"><?=$pregunta->getCategoria()->getNombre()?></a>
 							<a class="pregunta__comentarios toogle__comentario">
 								<svg class="svg-bubble svg-icon" viewBox="0 0 20 20">
 									<g>

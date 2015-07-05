@@ -12,7 +12,7 @@
 		public function index()
 		{
 			echo '<pre>';
-			var_dump(CM::id(4));
+			var_dump(CM::all());
 		}
 		
 		/*	**	*/
@@ -27,7 +27,7 @@
 			var_dump(CM::saveCategory('Apache'));
 		}
 
-		public function id($id = -1)
+		public function filter($id)
 		{
 			var_dump(CM::id($id));
 		}

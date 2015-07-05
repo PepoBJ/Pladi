@@ -22,6 +22,7 @@
 	padding: .4em;
 	transition: all ease-out 1s;
 	width: 80%;
+	margin-bottom: .8em;
 }
 
 .formulario .formulario__titulo {
@@ -29,6 +30,13 @@
 	font-size: 1.4em;
 	font-weight: bold;
 	line-height: 2;
+}
+.formulario .formulario__subtitulo {
+	cursor: default;
+	font-size: .8em;
+	line-height: 2;
+	font-weight: 600;
+	display: none;
 }
 .formulario .formulario__enviar {
 	background: #000;

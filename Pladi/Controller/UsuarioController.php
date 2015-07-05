@@ -15,6 +15,21 @@
 		public function get($id)
 		{
 			$data = array ( 'usuario' => UM::id($id));
-			$this->view('usuario/perfil', $data);
+			$this->view('Usuario/Perfil', $data);
+		}
+
+		public function profile($id)
+		{
+			$data = array ( 
+				'error' => '',
+				'usuario' => UM::id($id)
+			);
+			$this->view('Usuario/Profile', $data);
+		}
+
+		public function profileUpdate()
+		{
+			echo '<pre>';
+			var_dump($_POST);
 		}
 	}
