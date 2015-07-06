@@ -27,7 +27,7 @@
 				"error" => ""
 			);
 
-			if($_POST)
+			if(!empty($_POST) && isset($_POST))
 			{
 				if(UM::login($_POST['email'], $_POST['password']))
 				{
@@ -53,7 +53,7 @@
 
 		public function registro()
 		{
-			session_start();
+			@session_start();
 
 			if(isset($_SESSION['user']['id']) && isset($_SESSION['user']['email']))
 			{
@@ -67,7 +67,7 @@
 				"apellido" => ""
 			);
 
-			if($_POST)
+			if(!empty($_POST) && isset($_POST))
 			{
 				$data = array(
 					"nombre"   => $_POST['nombre'],
@@ -101,7 +101,7 @@
 					{
 						if(UM::login($_POST['email'], $_POST['password']))
 						{
-							$this->redirect('index', 'home');
+							$this->redirect('usuario', 'profile');
 						}	
 					}
 				}

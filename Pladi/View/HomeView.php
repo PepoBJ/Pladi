@@ -13,7 +13,7 @@
 	<header id="header">
 		<div class="container"> 
 			<nav id="menu">
-				<?= $helper->pladi_home_menu($usuario->getNombre(), $usuario->getId())?>	
+				<?= $helper->pladi_home_menu($usuario->getNombre())?>	
 			</nav>
 		</div>
 	</header>
@@ -23,7 +23,7 @@
 			<div class="grupo">
 				<article class="pregunta limpiar" data-id="<?=$pregunta->getId()?>">
 					<div class="caja desde-tablet tablet-15">
-						<img class="circulo centro tablet-50" src="<?=$pregunta->getUsuario()->getPerfilUsuario()->getFoto()?>" alt="user imagen profile">
+						<img class="circulo centro tablet-50" src="<?= $pregunta->getUsuario()->getPerfilUsuario()->getFoto(true) != NULL ? $pregunta->getUsuario()->getPerfilUsuario()->getFoto(true) : '/img/users/template.png' ?>" alt="user imagen profile">
 					</div>
 					<div class="caja tablet-85">
 						<header class="pregunta__titulo centrar-contenido">

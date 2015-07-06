@@ -21,7 +21,7 @@
 		<section id="perfil">
 			<div class="grupo">
 				<div class="perfil__imagen caja tablet-50 web-30">
-					<img class="base-40 movil-30 tablet-50 web-70 centro circulo" src="<?= $usuario->getPerfilUsuario()->getFoto() != NULL ? $usuario->getPerfilUsuario()->getFoto() : '/img/users/template.png'?>" alt="">
+					<img class="base-40 movil-30 tablet-50 web-70 centro circulo" src="<?= $usuario->getPerfilUsuario()->getFoto(true) != NULL ? $usuario->getPerfilUsuario()->getFoto(true) : '/img/users/template.png' ?>" alt="">
 				</div>
 				<div class="perfil__informacion caja tablet-50 web-70">					
 					<div class="grupo no-padding">
@@ -37,10 +37,10 @@
 							<a href="#" class="icon-correo espacio"><?=$usuario->getEmail();?></a>
 						</div>
 						<div class="informacion__twitter caja">
-							<a href="<?=$usuario->getPerfilUsuario()->getTwitter();?>" class="icon-twitter espacio">Twitter/<?= $usuario->getNombre()?></a>
+							<a target="_blank" href="https://www.twitter.com/<?=$usuario->getPerfilUsuario()->getTwitter();?>" class="icon-twitter espacio">Twitter/<?= $usuario->getNombre()?></a>
 						</div>
 						<div class="informacion__facebook caja">
-							<a href="<?=$usuario->getPerfilUsuario()->getFacebook();?>" class="icon-facebook espacio">Facebook/<?= $usuario->getNombre()?></a>
+							<a target="_blank" href="https://www.facebook.com/<?=$usuario->getPerfilUsuario()->getFacebook();?>" class="icon-facebook espacio">Facebook/<?= $usuario->getNombre()?></a>
 						</div>
 					</div>
 				</div>

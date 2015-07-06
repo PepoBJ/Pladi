@@ -14,13 +14,13 @@
 	<header id="header">
 		<div class="container"> 
 			<nav id="menu">
-				<?= $helper->pladi_home_menu($usuario->getNombre(), $usuario->getId()) ?>				
+				<?= $helper->pladi_home_menu($usuario_nombre) ?>				
 			</nav>			
 		</div>
 	</header>
 
 	<main id="profile">
-		<form class="formulario" action="<?= $helper->url('usuario', 'profileUpdate');?>" method="post" name="update_profile">
+		<form class="formulario" action="<?= $helper->url('usuario', 'profileUpdate');?>" method="post" name="update_profile" enctype="multipart/form-data">
 			<div class="grupo">
 				<div class="caja tablet-50 web-30 centrar-contenido centro">
 					<span class="formulario__titulo">Perfil Usuario</span>
@@ -33,7 +33,7 @@
 						<span class="formulario__subtitulo">Nombre:</span>
 					</div>
 					<div class="caja tablet-50 web-30 centrar-contenido centro">
-						<input name="nombre" value="<?= $usuario->getNombre() ?>" placeholder="Ingresa tu Nombre" class="formulario__nombre" type="text" required>
+						<input name="nombre" value="<?= $usuario_nombre ?>" placeholder="Ingresa tu Nombre" class="formulario__nombre" type="text" required>
 					</div>
 				</div>
 				<div class="formulario__campo">
@@ -41,7 +41,7 @@
 						<span class="formulario__subtitulo">Apellido:</span>
 					</div>
 					<div class="caja tablet-50 web-30 centrar-contenido centro">
-						<input name="apellido" value="<?= $usuario->getApellido() ?>" placeholder="Ingresa tu Apellido" class="formulario__apellido" type="text" required>
+						<input name="apellido" value="<?= $usuario_apellido ?>" placeholder="Ingresa tu Apellido" class="formulario__apellido" type="text" required>
 					</div>
 				</div>
 				<div class="formulario__campo">
@@ -49,7 +49,7 @@
 						<span class="formulario__subtitulo">Email:</span>
 					</div>
 					<div class="caja tablet-50 web-30 centrar-contenido centro">
-						<input name="email" value="<?= $usuario->getEmail() ?>" placeholder="Ingresa tu Email" class="formulario__email" type="email" required>
+						<input name="email" value="<?= $usuario_email ?>" placeholder="Ingresa tu Email" class="formulario__email" type="email" required>
 					</div>
 				</div>
 				<div class="formulario__campo">
@@ -57,7 +57,7 @@
 						<span class="formulario__subtitulo">Twitter:</span>
 					</div>
 					<div class="caja tablet-50 web-30 centrar-contenido centro">
-						<input name="twitter" value="<?= $usuario->getPerfilUsuario()->getTwitter() ?>" placeholder="Ingresa tu Twitter" class="formulario__twitter" type="url" required>
+						<input name="twitter" value="<?= $usuario_twitter ?>" placeholder="Ingresa tu Twitter" class="formulario__twitter" type="text" required>
 					</div>
 				</div>
 				<div class="formulario__campo">
@@ -65,7 +65,7 @@
 						<span class="formulario__subtitulo">Facebook:</span>
 					</div>
 					<div class="caja tablet-50 web-30 centrar-contenido centro">
-						<input name="facebook" value="<?= $usuario->getPerfilUsuario()->getFacebook() ?>" placeholder="Ingresa tu Facebook" class="formulario__facebook" type="url" required>
+						<input name="facebook" value="<?= $usuario_facebook ?>" placeholder="Ingresa tu Facebook" class="formulario__facebook" type="text" required>
 					</div>
 				</div>
 				<div class="formulario__campo">

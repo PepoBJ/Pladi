@@ -47,11 +47,13 @@
 
 			$this->foto = $foto != "" ? $foto : NULL ;
 		}
-		public function getFoto()
+		public function getFoto($path = false)
 		{
 			if ($this->foto == NULL) return NULL;
 			
-			return self::PATH . $this->foto;
+			if($path) return self::PATH . $this->foto;
+
+			return $this->foto;
 		}
 		
 		/*	**	*/

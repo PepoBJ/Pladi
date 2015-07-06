@@ -49,7 +49,7 @@
 
         /*        HOME MENU PLADI         */
         
-        public function pladi_home_menu($usuario, $usuario_id)
+        public function pladi_home_menu($usuario)
         {
             return 
             '<div class="grupo base-tabla centrar-contenido">
@@ -58,7 +58,7 @@
                     <span class="logo__titulo">PlaDi</span>
                 </div>
                 <div class="caja base-1-6 medio">
-                    <a href="'.$this->url('usuario', 'profile', $usuario_id).'" class="usuario__nombre icon-usuario espacio"><span>'.$usuario.'</span></a>
+                    <a href="'.$this->url('usuario', 'profile').'" class="usuario__nombre icon-usuario espacio"><span>'.$usuario.'</span></a>
                 </div>
                 <div class="caja base-1-6 medio">
                     <a href="#" class="usuario__preguntas icon-tarjeta espacio"><span>Mis Preguntas</span></a>
