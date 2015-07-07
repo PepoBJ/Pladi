@@ -8,7 +8,6 @@
 	<link rel="stylesheet" href="/css/ed-grid.css">
 	<link rel="stylesheet" href="/css/menu-footer.css">
 	<link rel="stylesheet" href="/css/formulario.css">
-	<link rel="stylesheet" href="/css/home.css">
 	<link rel="stylesheet" href="/css/http-errors.css">
 
 </head>
@@ -16,7 +15,7 @@
 	<header id="header">
 		<div class="container"> 
 			<nav id="menu">
-				<?= $helper->pladi_home_menu($usuario->getNombre()) ?>				
+				<?= $helper->pladi_menu() ?>				
 			</nav>			
 		</div>
 	</header>

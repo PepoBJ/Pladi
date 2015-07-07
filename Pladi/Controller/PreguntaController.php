@@ -11,13 +11,13 @@
 		
 		public function index()
 		{
-			echo '<pre>';
-
-			var_dump(PM::id(1));
+			$this->redirect();
 		}
 		
 		/*	**	*/
 
+		/*		DENUNCIAR 		*/
+		
 		public function denunciar()
 		{
 			session_start();
@@ -25,8 +25,8 @@
 			if (HR::is_ajax() && isset($_POST['id']) && isset($_SESSION['user'])) 
 			{
 				$result = PM::denunciarPregunta($_POST['id']);
-				$data = array("exito" => $result );
-			    $data = json_encode($data);
+				$data   = array("exito" => $result );
+				$data   = json_encode($data);
 			    echo $data;	    
 			}
 			else
@@ -34,6 +34,8 @@
 				$this->redirect();
 			}
 		}
+		
+		/*	**	*/
 	}
 
 /*		FIN CLASS CONTROLLER PREGUNTA		*/

@@ -1,7 +1,7 @@
 .error__titulo {
+	border-bottom: 1px solid #ccc;
 	font-size: 1.2em;
 	line-height: 2;
-	border-bottom: 1px solid #ccc;
 	margin: 2em 0;
 }
 

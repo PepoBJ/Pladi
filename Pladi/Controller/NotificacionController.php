@@ -10,9 +10,7 @@
 		
 		public function index()
 		{
-			echo '<pre>';
-			
-			var_dump(NM::all());
+			$this->redirect();
 		}
 		
 		/*	**	*/

@@ -6,13 +6,20 @@
 
 	class IndexController extends ControladorBase
 	{
+		
+		/*		INDEX 		*/
+		
 		public function index()
 		{
 			$data = array( 'usuarios' => UM::all() );
 
 			$this->view('Index', $data);
 		}
+		
+		/*	**	*/
 
+		/*		LOGIN 		*/
+		
 		public function login()
 		{
 			session_start();
@@ -45,12 +52,21 @@
 			$this->view('Login', $data);
 
 		}
+		
+		/*	**	*/
+
+		/*		LOGOUT 		*/
+		
 		public function logout()
 		{
 			UM::logout();
 			$this->redirect();
 		}
-
+		
+		/*	**	*/
+		
+		/*		REGISTRO 		*/
+		
 		public function registro()
 		{
 			@session_start();
@@ -109,7 +125,11 @@
 
 			$this->view('Registro', $data);
 		}
+		
+		/*	**	*/
 
+		/*		HOME 		*/
+		
 		public function home()
 		{
 			session_start();
@@ -119,7 +139,7 @@
 				$user = UM::id($_SESSION['user']['id']);
 
 				$data = array(
-					"usuario" => $user,
+					"usuario"   => $user,
 					"preguntas" => PM::all()
 				);
 				$this->view('Home', $data);
@@ -129,4 +149,6 @@
 				$this->redirect();
 			}
 		}
+		
+		/*	**	*/
 	}

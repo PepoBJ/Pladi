@@ -5,10 +5,10 @@
 
 		/*		DRIVER DE CONEXION 		*/
 		
-		public static $driver = "mysql";
+		public static $driver   = "mysql";
 		
 		/*	**	*/
-
+		
 		/*		HOST 		*/
 		
 		public static $host     = "localhost";

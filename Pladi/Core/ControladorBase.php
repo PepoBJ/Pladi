@@ -36,7 +36,7 @@
         public function redirect($controlador = "", $accion = "", $args = NULL)
         {
             $controlador = $controlador == "" ? VariablesGlobales::$controlador_defecto : $controlador;
-            $accion = $accion == "" ?VariablesGlobales::$accion_defecto : $accion;
+            $accion      = $accion == "" ?VariablesGlobales::$accion_defecto : $accion;
 
             if ( ! isset($args))
             {

@@ -8,27 +8,34 @@
 
 	class CategoriaController extends ControladorBase
 	{
+		
+		/*		INDEX 		*/
+		
 		public function index()
 		{
 			$this->redirect();
 		}
 
+		
+		/*	**	*/
+
+		/*		FILTRADO DE PREGUNTAS POR CATEGORIA 		*/
+		
 		public function filter($id)
 		{
 			session_start();
 			
 			if(isset($_SESSION['user']['id']) && isset($_SESSION['user']['email']))
 			{
-				$preguntas = PM::getQuestionCategory($id);
-
-				$user = UM::id($_SESSION['user']['id']);
-
-				$data = array(
-					"usuario" => $user,
+				$preguntas = PM::getQuestionCategory($id);				
+				$user      = UM::id($_SESSION['user']['id']);
+				
+				$data      = array(
+					"usuario"   => $user,
 					"preguntas" => $preguntas
 				);
 
-				if(! isset($preguntas) || empty($preguntas)) $this->view('Errors/404', $data);
+				if(! isset($preguntas) || empty($preguntas)) $this->view('Errors/404');
 				else $this->view('Home', $data);
 			}
 			else
@@ -36,6 +43,8 @@
 				$this->redirect();
 			}
 		}
+		
+		/*	**	*/
 	}
 
 

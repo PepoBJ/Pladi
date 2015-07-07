@@ -7,10 +7,10 @@
 		public static $controlador_defecto = "Index";
 		
 		/*	**	*/
-
+		
 		/*		ACCION POR DEFECTO 		*/
 		
-		public static $accion_defecto = "index";
+		public static $accion_defecto      = "index";
 		
 		/*	**	*/
 	}

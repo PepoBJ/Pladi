@@ -7,17 +7,30 @@
 
 	class UsuarioController extends ControladorBase
 	{
+		/*		INDEX 		*/
+		
 		public function index()
 		{
 			$this->redirect();
 		}
+		
+		/*	**	*/
 
+		/*		GET USUARIO [ID] 		*/
+		
 		public function get($id)
 		{
-			$data = array ( 'usuario' => UM::id($id));
-			$this->view('Usuario/Perfil', $data);
+			$usuario = UM::id($id);
+			$data = array ( 'usuario' => $usuario );
+			
+			if(! isset($usuario) || empty($usuario)) $this->view('Errors/404');
+			else $this->view('Usuario/Perfil', $data);
 		}
+		
+		/*	**	*/
 
+		/*		PERFIL USUARIO 		*/
+		
 		public function profile()
 		{
 			@session_start();
@@ -43,7 +56,11 @@
 				$this->redirect();
 			}
 		}
+		
+		/*	**	*/
 
+		/*		POST PERFIL USUARIO 		*/
+		
 		public function profileUpdate()
 		{
 			@session_start();
@@ -111,9 +128,9 @@
 
 							
 							$path_destino = getcwd().DIRECTORY_SEPARATOR;
-							$type_array = explode(".", $_FILES['foto']['name']);							
-							$name_img =  $path_destino . 'img/users/' . $_POST['nombre'] . '.' . $type_array[count($type_array) - 1];
-							$foto = $_FILES['foto']['tmp_name'];
+							$type_array   = explode(".", $_FILES['foto']['name']);							
+							$name_img     =  $path_destino . 'img/users/' . $_POST['nombre'] . '.' . $type_array[count($type_array) - 1];
+							$foto         = $_FILES['foto']['tmp_name'];
 
 							if(($mTipo != IMAGETYPE_JPEG) && ($mTipo != IMAGETYPE_PNG))
 							{
@@ -125,7 +142,7 @@
 							}
 							else
 							{
-								$foto_bd =  $_POST['nombre'] . '.' . $type_array[count($type_array) - 1];
+								$foto_bd              =  $_POST['nombre'] . '.' . $type_array[count($type_array) - 1];
 								$data['usuario_foto'] = "/img/users/" . $foto_bd;
 							}
 						}
@@ -149,4 +166,6 @@
 				$this->redirect();
 			}			
 		}
+		
+		/*	**	*/
 	}
