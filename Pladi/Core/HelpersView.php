@@ -29,6 +29,20 @@
           return $frases[rand(0, count($frases)-1)];
         }
         /*	**	*/
+
+        /*        PLADI FAVICON         */
+        
+        public function pladi_favicon()
+        {
+            $protocol      = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+            $domainName    = $_SERVER['HTTP_HOST'].'/';
+            $host_protocol = $protocol.$domainName;
+
+            return '<link rel="shortcut icon" href="' . $host_protocol . 'favicon.ico" />
+            <link rel="icon" type="image/png" href="' . $host_protocol . 'img/logo.png" />';
+        }
+        
+        /*    **    */
         
         /*        MENU PLADI         */
         
