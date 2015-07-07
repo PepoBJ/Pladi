@@ -1,4 +1,4 @@
-$('.respuestas').toggle(0);
+
 $('.toogle__comentario').on('click', function(){
 	$(this).parent().parent().siblings('.respuestas').slideToggle(500);
 });

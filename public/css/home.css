@@ -82,6 +82,7 @@
 
 .respuestas {
 	margin: 1em .5em;
+	display: none;
 }
 .respuesta:first-child > .respuesta__borde{
 	border-radius: 5px 5px 0 0;
