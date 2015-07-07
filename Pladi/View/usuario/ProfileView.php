@@ -33,6 +33,11 @@
 				</div>
 				<div class="formulario__campo">
 					<div class="caja tablet-50 web-30 centrar-contenido centro">
+						<img class="formulario__imagen base-30 circulo" src="<?=$usuario_foto?>" alt="User <?=$usuario_nombre?>">
+					</div>
+				</div>
+				<div class="formulario__campo">
+					<div class="caja tablet-50 web-30 centrar-contenido centro">
 						<span class="formulario__subtitulo">Nombre:</span>
 					</div>
 					<div class="caja tablet-50 web-30 centrar-contenido centro">

@@ -2,6 +2,7 @@
 
 	use Pladi\Model\Action\Categoria as ACategoria;
 	use Pladi\Model\Clase\Categoria as CCategoria;
+	use Pladi\Helpers\Security as HS;
 
 	class CategoriaModel
 	{
@@ -56,6 +57,8 @@
 		
 		public static function busqueda($nombre)
 		{
+			$nombre = HS::clean_input($nombre);
+			
 			$a_categoria = new ACategoria();
 			$categorias  = $a_categoria->runSql(
 							"SELECT * FROM " . $a_categoria->table() . " WHERE nombre LIKE '%$nombre%'",

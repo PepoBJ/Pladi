@@ -1,3 +1,7 @@
 .formulario__campo {
 	border-radius: .5em;
 }
+
+.formulario__campo .formulario__imagen {
+	margin: 1em 0;
+}

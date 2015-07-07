@@ -24,10 +24,11 @@
 			if(isset($_SESSION['user']))
 			{
 				$usuario = UM::id($_SESSION['user']['id']);
-
+				
 				$data = array ( 
 					'exito'            => '',
 					'error'            => '',
+					'usuario_foto'     => $usuario->getPerfilUsuario()->getFoto(true),
 					'usuario_nombre'   => $usuario->getNombre(),
 					'usuario_apellido' => $usuario->getApellido(),
 					'usuario_email'    => $usuario->getEmail(),
@@ -54,6 +55,7 @@
 				$data = array ( 
 					'exito'            => '',
 					'error'            => '',
+					'usuario_foto'     => $usuario->getPerfilUsuario()->getFoto(true),
 					'usuario_nombre'   => $_POST['nombre'],
 					'usuario_apellido' =>  $_POST['apellido'],
 					'usuario_email'    => $_POST['email'],
@@ -124,6 +126,7 @@
 							else
 							{
 								$foto_bd =  $_POST['nombre'] . '.' . $type_array[count($type_array) - 1];
+								$data['usuario_foto'] = "/img/users/" . $foto_bd;
 							}
 						}
 

@@ -3,38 +3,38 @@
 	use Pladi\Core\ControladorBase;
 
 	use Pladi\Model\CategoriaModel as CM;
+	use Pladi\Model\PreguntaModel as PM;
+	use Pladi\Model\UsuarioModel as UM;
 
 	class CategoriaController extends ControladorBase
 	{
-
-		/*		INDEX 		*/
-		
 		public function index()
 		{
-			echo '<pre>';
-			var_dump(CM::all());
-		}
-		
-		/*	**	*/
-
-		public function crear()
-		{
-			var_dump(CM::saveCategory('programación'));
-			var_dump(CM::saveCategory('Java'));
-			var_dump(CM::saveCategory('C++'));
-			var_dump(CM::saveCategory('Dev-cpp'));
-			var_dump(CM::saveCategory('Redes'));
-			var_dump(CM::saveCategory('Apache'));
+			$this->redirect();
 		}
 
 		public function filter($id)
 		{
-			var_dump(CM::id($id));
-		}
+			session_start();
+			
+			if(isset($_SESSION['user']['id']) && isset($_SESSION['user']['email']))
+			{
+				$preguntas = PM::getQuestionCategory($id);
 
-		public function busqueda()
-		{
-			var_dump(CM::busqueda('a'));	
+				$user = UM::id($_SESSION['user']['id']);
+
+				$data = array(
+					"usuario" => $user,
+					"preguntas" => $preguntas
+				);
+
+				if(! isset($preguntas) || empty($preguntas)) $this->view('Errors/404', $data);
+				else $this->view('Home', $data);
+			}
+			else
+			{
+				$this->redirect();
+			}
 		}
 	}
 
