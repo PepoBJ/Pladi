@@ -28,6 +28,9 @@
 				<div class="caja tablet-50 web-30 centrar-contenido centro">
 					<span class="formulario__error"><?=$error?></span>
 				</div>
+				<div class="caja tablet-50 web-30 centrar-contenido centro">
+					<span class="formulario__exito"><?=$exito?></span>
+				</div>
 				<div class="formulario__campo">
 					<div class="caja tablet-50 web-30 centrar-contenido centro">
 						<span class="formulario__subtitulo">Nombre:</span>

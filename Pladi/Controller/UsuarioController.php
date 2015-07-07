@@ -26,6 +26,7 @@
 				$usuario = UM::id($_SESSION['user']['id']);
 
 				$data = array ( 
+					'exito'            => '',
 					'error'            => '',
 					'usuario_nombre'   => $usuario->getNombre(),
 					'usuario_apellido' => $usuario->getApellido(),
@@ -51,6 +52,7 @@
 				$usuario = UM::id($_SESSION['user']['id']);
 				
 				$data = array ( 
+					'exito'            => '',
 					'error'            => '',
 					'usuario_nombre'   => $_POST['nombre'],
 					'usuario_apellido' =>  $_POST['apellido'],
@@ -61,11 +63,11 @@
 
 				if(! HR::valid_facebook_username($_POST['facebook']))
 				{
-					$data["error"] = "Facebook incorrecto";
+					$data["error"] = "Usuario de facebook incorrecto";
 				}
 				elseif(! HR::valid_twitter_username($_POST['twitter']))
 				{
-					$data["error"] = "Twitter incorrecto";
+					$data["error"] = "Usuario de Twitter incorrecto";
 				}
 				elseif (strlen($_POST['password']) < 8 || strlen($_POST['password']) > 10) 
 				{
@@ -129,7 +131,7 @@
 						{
 							$data['error'] = "Ocurrio un error en la actualización[User-Profile]";
 						}
-						//$this->redirect('usuario', 'profile');
+						$data['exito'] = "Datos actualizados correctamente";
 					}
 					else
 					{

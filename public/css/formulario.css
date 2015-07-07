@@ -48,11 +48,17 @@
 .formulario .formulario__enviar:hover {
 	box-shadow: 1px 1px 10px rgba(0,0,0,.7);
 }
-.formulario .formulario__error {
-	color: rgba(255, 0, 0, .6);
+.formulario .formulario__error, .formulario .formulario__exito{
 	font-size: .8em;
 	line-height: 3;
 }
+.formulario .formulario__error {
+	color: rgba(255, 0, 0, .6);
+}
+.formulario .formulario__exito {
+	color: rgba(0, 255, 0, 1);	
+}
+
 
 /* Desde tablet */
 @media all and (min-width:768px){
