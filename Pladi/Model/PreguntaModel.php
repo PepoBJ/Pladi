@@ -82,6 +82,35 @@
 		
 		/*	**	*/
 
+		/*		PREGUNTA POR TITULO 		*/
+		
+		public static function titulo($titulo)
+		{
+			$a_pregunta = new APregunta();
+			
+			$pregunta   = $a_pregunta->getBy('titulo', $titulo, self::PREGUNTA_NAMESPACE)[0];
+			
+			if(! isset($pregunta)) return null;
+
+			$pregunta->setCategoria(CM::id($pregunta->getIdCategoria()));
+			$pregunta->setUsuario(UM::id($pregunta->getIdUsuario()));
+
+			$respuesta = RM::replysForQuestionId($pregunta->getId(), RM::RESPUESTA_NAMESPACE);
+			
+			if (isset($respuesta))
+			{
+				$pregunta->setOBJRespuestas($respuesta);
+			}
+			else
+			{
+				$pregunta->setOBJRespuestas(null);
+			}
+
+			return $pregunta;
+		}
+		
+		/*	**	*/
+
 		/*		PREGUNTA POR CATEGORIA 		*/
 		
 		public static function getQuestionCategory($id_categoria)

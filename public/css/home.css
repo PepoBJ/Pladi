@@ -17,6 +17,91 @@
 	display: none;
 }
 
+#preguntar {
+	margin: 2.5em 0;
+}
+#error {
+	color: rgba(255, 0, 0, .8);
+	cursor: default;
+	font-weight: bold;
+	font-size: .8em;
+	line-height: 3;
+	text-align: center;
+	transition: all ease-out .5s;
+}
+#toggle-preguntar {
+	background: #000;
+	border-radius: 10px 10px 0 0 ;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+	line-height: 2;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+.formulario__preguntar {
+	display: none;
+}
+.formulario__preguntar > .grupo{
+	border-left: 1px solid rgba(0, 0, 0, .2);
+	border-radius: 5px;
+	border-top: 1px solid rgba(0, 0, 0, .2);
+	box-shadow: 5px 5px 15px rgba(0,0,0,.3);
+	padding: .5em 0;
+}
+.formulario__preguntar .formulario__campo {
+	margin: .5em 0;
+	padding: .5em 0;
+	text-align: center;	
+	transition: all ease-out .5s;
+}
+.formulario__preguntar .formulario__campo:hover {
+	background: rgba(0, 0, 0, .05);
+}
+.formulario__preguntar .formulario__campo .formulario__subtitulo{
+	font-weight: bold;
+	font-size: .8em;
+	line-height: 2;
+}
+.formulario__preguntar .formulario__campo input, 
+.formulario__preguntar .formulario__campo textarea, 
+.formulario__preguntar .formulario__campo select {
+	border: 1px solid #000;
+	display: block;
+	line-height: 2;
+	margin-top: .2em;
+	outline: transparent;
+	text-align: center;
+	width: 100%;
+}
+.formulario__preguntar .formulario__campo select {
+	padding: .5em 0;
+}
+.formulario__preguntar .formulario__enviar {
+	background: #000;
+	border: 1px solid #000;	
+	color: #FFF;
+	cursor: pointer;
+	font-size: 1em;	
+	padding: 1em .0;
+	margin: .5em 0;	
+	transition: all ease-out .5s;
+}
+.formulario__preguntar .formulario__enviar:hover{
+	box-shadow: 1px 1px 10px rgba(0,0,0,.7);
+}
+
+/* Desde tablet */
+@media all and (min-width:768px){
+	.formulario__preguntar .formulario__subtitulo {
+		display: block;
+		padding-left: .5em;
+		text-align: left;
+	}
+}
+
+
 #preguntas {
 	margin: 1.5em 0;
 }
