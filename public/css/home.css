@@ -40,6 +40,16 @@
 	padding: 0;
 	text-align: center;
 }
+.mis-preguntas {
+	cursor: default;
+	border-bottom: 1px solid #ccc;
+	font-size: 1.3em;
+	margin-bottom: 2em;
+	padding-bottom: .5em;
+	text-align: center;
+	text-transform: uppercase;
+}
+
 .formulario__preguntar {
 	display: none;
 }

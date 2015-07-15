@@ -118,10 +118,40 @@
 			$id_categoria = HS::clean_input($id_categoria);
 
 			$a_pregunta = new APregunta();
-			$preguntas = $a_pregunta->runSql(
- 					"SELECT * FROM " . $a_pregunta->table() . " WHERE fk_id_categoria = " . $id_categoria,
- 					self::PREGUNTA_NAMESPACE
-				);
+			$preguntas = $a_pregunta->getBy("fk_id_categoria", $id_categoria, self::PREGUNTA_NAMESPACE);
+			if (! is_object($preguntas) && ! is_array($preguntas)) return null;
+
+			elseif(is_object($preguntas))
+			{
+				$preguntas = array ($preguntas);
+			}
+
+			foreach ($preguntas as $index => $pregunta_actual) {
+				$pregunta_actual->setCategoria(CM::id($pregunta_actual->getIdCategoria()));
+				$pregunta_actual->setUsuario(UM::id($pregunta_actual->getIdUsuario()));
+
+				$respuestas = RM::replysForQuestionId($pregunta_actual->getId(), RM::RESPUESTA_NAMESPACE);
+
+				if ( ! isset($respuestas) ) continue;
+
+				$pregunta_actual->setOBJRespuestas($respuestas);				
+				$preguntas[$index] = $pregunta_actual;
+
+			}
+
+			return $preguntas;
+		}
+		
+		/*	**	*/
+
+		/*		PREGUNTA POR ID USUARIO 		*/
+		
+		public static function getQuestionIdUser($id_user)
+		{
+			$id_user = HS::clean_input($id_user);
+
+			$a_pregunta = new APregunta();
+			$preguntas = $a_pregunta->getBy("fk_id_usuario", $id_user, self::PREGUNTA_NAMESPACE);
 			if (! is_object($preguntas) && ! is_array($preguntas)) return null;
 
 			elseif(is_object($preguntas))

@@ -21,6 +21,13 @@
 	
 	<main id="principal">
 		<div id="preguntar">
+			<?php if(@$misPreguntas):?>
+			<div class="caja">
+				<div class="grupo">
+					<h2 class="mis-preguntas">Mis Preguntas</h2>
+				</div>
+			</div>
+			<?php endif;?>
 			<div class="grupo">
 				<div class="caja">
 					<p id="error"></p>

@@ -3,7 +3,6 @@
 	use Pladi\Core\ControladorBase;
 	use Pladi\Model\UsuarioModel as UM;
 	use Pladi\Model\PreguntaModel as PM;
-	use Pladi\Model\CategoriaModel as CM;
 
 	class IndexController extends ControladorBase
 	{
@@ -141,7 +140,6 @@
 
 				$data = array(
 					"usuario"    => $user,
-					"categorias" => CM::all(),
 					"preguntas"  => PM::all()
 				);
 				$this->view('Home', $data);

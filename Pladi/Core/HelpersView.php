@@ -75,7 +75,7 @@
                     <a href="'.$this->url('usuario', 'profile').'" class="usuario__nombre icon-usuario espacio"><span>'.$usuario.'</span></a>
                 </div>
                 <div class="caja base-1-6 medio">
-                    <a href="#" class="usuario__preguntas icon-tarjeta espacio"><span>Mis Preguntas</span></a>
+                    <a href="'.$this->url('pregunta', 'misPreguntas').'" class="usuario__preguntas icon-tarjeta espacio"><span>Mis Preguntas</span></a>
                 </div>
                 <div class="caja base-1-6 medio">
                     <a href="#" class="usuario__notificaciones icon-fecha espacio"><span>Notificaciones</span></a>

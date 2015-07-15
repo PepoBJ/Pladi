@@ -2,6 +2,7 @@
 
 	use Pladi\Core\ControladorBase;
 	use Pladi\Model\PreguntaModel as PM;
+	use Pladi\Model\UsuarioModel as UM;
 	use Pladi\Helpers\Request as HR;
 	use Pladi\Helpers\Content as HC;
 
@@ -57,6 +58,31 @@
 				$data['html_data'] = $cuerpo;
 				$data   = json_encode($data);
 			    echo $data;	    
+			}
+			else
+			{
+				$this->redirect();
+			}
+		}
+		
+		/*	**	*/
+
+		/*		MIS PREGUNTAS - GET 		*/
+		
+		public function misPreguntas()
+		{
+			session_start();
+
+			if(isset($_SESSION['user']['id']) && isset($_SESSION['user']['email']))
+			{
+				$user = UM::id($_SESSION['user']['id']);
+
+				$data = array(
+					"usuario"      => $user,
+					"misPreguntas" => true,
+					"preguntas"    => PM::getQuestionIdUser($user->getId())
+				);
+				$this->view('Home', $data);
 			}
 			else
 			{
