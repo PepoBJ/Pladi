@@ -29,7 +29,7 @@
 	text-align: center;
 	transition: all ease-out .5s;
 }
-#toggle-preguntar {
+#toggle-preguntar, .toggle-responder {
 	background: #000;
 	border-radius: 10px 10px 0 0 ;
 	color: #fff;
@@ -39,6 +39,10 @@
 	margin: 0;
 	padding: 0;
 	text-align: center;
+}
+.toggle-responder {
+	background: rgba(0, 0, 0, .9);
+	margin-top: 2em;
 }
 .mis-preguntas {
 	cursor: default;
@@ -50,33 +54,40 @@
 	text-transform: uppercase;
 }
 
-.formulario__preguntar {
+.formulario__preguntar,
+.formulario__responder {
 	display: none;
 }
-.formulario__preguntar > .grupo{
+.formulario__preguntar > .grupo, 
+.formulario__responder > .grupo{
 	border-left: 1px solid rgba(0, 0, 0, .2);
 	border-radius: 5px;
 	border-top: 1px solid rgba(0, 0, 0, .2);
 	box-shadow: 5px 5px 15px rgba(0,0,0,.3);
 	padding: .5em 0;
 }
-.formulario__preguntar .formulario__campo {
+.formulario__preguntar .formulario__campo, 
+.formulario__responder .formulario__campo {
 	margin: .5em 0;
 	padding: .5em 0;
 	text-align: center;	
 	transition: all ease-out .5s;
 }
-.formulario__preguntar .formulario__campo:hover {
+.formulario__preguntar .formulario__campo:hover, 
+.formulario__responder .formulario__campo:hover {
 	background: rgba(0, 0, 0, .05);
 }
-.formulario__preguntar .formulario__campo .formulario__subtitulo{
+.formulario__preguntar .formulario__campo .formulario__subtitulo, 
+.formulario__responder .formulario__campo .formulario__subtitulo{
 	font-weight: bold;
 	font-size: .8em;
 	line-height: 2;
 }
 .formulario__preguntar .formulario__campo input, 
 .formulario__preguntar .formulario__campo textarea, 
-.formulario__preguntar .formulario__campo select {
+.formulario__preguntar .formulario__campo select,
+.formulario__responder .formulario__campo input, 
+.formulario__responder .formulario__campo textarea {
 	border: 1px solid #000;
 	display: block;
 	line-height: 2;
@@ -88,7 +99,8 @@
 .formulario__preguntar .formulario__campo select {
 	padding: .5em 0;
 }
-.formulario__preguntar .formulario__enviar {
+.formulario__preguntar .formulario__enviar, 
+.formulario__responder .formulario__enviar {
 	background: #000;
 	border: 1px solid #000;	
 	color: #FFF;
@@ -98,13 +110,15 @@
 	margin: .5em 0;	
 	transition: all ease-out .5s;
 }
-.formulario__preguntar .formulario__enviar:hover{
+.formulario__preguntar .formulario__enviar:hover,
+.formulario__responder .formulario__enviar:hover{
 	box-shadow: 1px 1px 10px rgba(0,0,0,.7);
 }
 
 /* Desde tablet */
 @media all and (min-width:768px){
-	.formulario__preguntar .formulario__subtitulo {
+	.formulario__preguntar .formulario__subtitulo,
+	.formulario__responder .formulario__subtitulo {
 		display: block;
 		padding-left: .5em;
 		text-align: left;

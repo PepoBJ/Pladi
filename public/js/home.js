@@ -5,6 +5,9 @@ $('.toogle__comentario').on('click', function(){
 $('#toggle-preguntar').on('click', function(){
 	$('.formulario__preguntar').slideToggle(500);
 });
+$('.toggle-responder').on('click', function(){
+	$($(this).parents('.caja').parents('.grupo')[0]).siblings('.formulario__responder').slideToggle(500);
+});
 
 var root = location.protocol + '//' + location.host;
 
@@ -27,6 +30,21 @@ $(document).ready(function(){
 		}
 
 		preguntar($(this).data('id'), $('.formulario__pregunta__categoria').val(), titulo, cuerpo);
+		return false;
+	});
+	$('.formulario__responder').on('submit', function(){
+
+		var id_pregunta = $(this).data('id');
+		var titulo = $(this).find('.formulario__respuesta__titulo').val();
+		var cuerpo = $(this).find('.formulario__respuesta__cuerpo').val();
+
+		if(titulo.length < 5 || cuerpo.length < 5 )
+		{
+			alert('El cuerpo y/o título tienen una longitud incorrecta [>5]');
+			return false;
+		}
+		
+		responder(id_pregunta, titulo, cuerpo, this);
 		return false;
 	});
 });
@@ -57,6 +75,46 @@ function preguntar(id_user, id_categoria, titulo, cuerpo)
 			else {
 				$('#error').text('La pregunta tiene un título existente.');
 				animate_error();
+			}
+			return false;
+		},
+		error : function(jqXHR, status, error)
+		{
+			console.dir(error);
+			console.dir(status);
+			console.dir(jqXHR);
+			return false;
+		},
+		complete: function () {
+			return false;
+		}
+	});
+	return false;
+}
+
+function responder(id_pregunta, titulo, cuerpo, formulario)
+{
+	$.ajax({
+		url : root + '/respuesta/responder',
+		data: { id : id_pregunta, title : titulo, body : cuerpo},
+		type : 'POST',
+		dataType : 'json',
+		success : function(json)
+		{
+			if(json.exito)
+			{
+				$(formulario).find('.formulario__respuesta__titulo').val('');
+				$(formulario).find('.formulario__respuesta__cuerpo').val('');
+				var pregunta_div = $( "#" + $(formulario).data('id'));
+				pregunta_div.find('.respuestas').prepend(json.html_data);
+				var num_respuestas = pregunta_div.find('.num_respuestas');
+				num_respuestas.text( parseInt(num_respuestas.text()) + 1);
+				pregunta_div.find('.respuestas').slideDown(500);
+				$(formulario).slideUp(500);
+				
+			}
+			else {
+				alert('No se pudo publicar tu respuesta intenta en unos minutos.');
 			}
 			return false;
 		},

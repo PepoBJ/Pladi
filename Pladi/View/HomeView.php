@@ -78,7 +78,7 @@
 		<div id="preguntas">
 			<?php foreach($preguntas as $key => $pregunta):?>
 				<div class="grupo">
-					<article class="pregunta limpiar" data-id="<?=$pregunta->getId()?>">
+					<article class="pregunta limpiar" data-id="<?=$pregunta->getId()?>" id="<?=$pregunta->getId()?>">
 						<div class="caja desde-tablet tablet-15">
 							<img class="circulo centro tablet-50" src="<?= $pregunta->getUsuario()->getPerfilUsuario()->getFoto(true) != NULL ? $pregunta->getUsuario()->getPerfilUsuario()->getFoto(true) : '/img/users/template.png' ?>" alt="user imagen profile">
 						</div>
@@ -107,7 +107,7 @@
 											<polygon points=" 6.6,12.6 3.5,15.8 3.5,11.6 "></polygon>
 										</g>
 									</svg>
-									<span><?=$pregunta->getRespuestas()?></span>
+									<span class="num_respuestas"><?=$pregunta->getRespuestas()?></span>
 								</a>
 								<a class="pregunta__denuncias">
 									<svg class="svg-bolt svg-icon" viewBox="0 0 20 20"><g><polygon points="14,7.4 9,7.4 9,1 4,11.6 9,11.6 9,18"></polygon></g></svg>
@@ -117,8 +117,9 @@
 							</footer>
 						</div>
 						<div class="limpiar"></div>
-						<?php if($pregunta->getOBJRespuestas()): ?>
-						<aside class="respuestas limpiar">							
+						
+						<aside class="respuestas limpiar">
+							<?php if($pregunta->getOBJRespuestas()): ?>
 							<?php foreach($pregunta->getOBJRespuestas() as $index => $respuesta ):?>
 								<div class="respuesta limpiar" data-id="<?=$respuesta->getId()?>">
 									<div class="caja respuesta__borde base-95 tablet-75">
@@ -142,15 +143,47 @@
 										</footer>
 									</div>
 								</div>
-							<?php endforeach;?>							
+							<?php endforeach;?>
+							<?php endif;?>
 						</aside>
-						<?php endif;?>
+						
+						<div class="responder">
+							<div class="grupo">
+								<div class="caja base-100 tablet-75 centro">
+									<p class="toggle-responder">¿Responder?</p>
+								</div>
+							</div>
+							<form onsubmit="return false;" data-id="<?=$pregunta->getId()?>" class="formulario__responder" method="POST" name="responder">
+								<div class="grupo">
+									<div class="formulario__campo limpiar">
+										<div class="caja base-100 tablet-20">
+											<span class="formulario__subtitulo">Título:</span>
+										</div>
+										<div class="caja base-100 tablet-80">
+											<input name="titulo" value="" placeholder="Título de tu respuesta" class="formulario__respuesta__titulo" type="text" required autocomplete="off">
+										</div>
+									</div>
+									<div class="formulario__campo limpiar">
+										<div class="caja base-100 tablet-20">
+											<span class="formulario__subtitulo">Cuerpo:</span>
+										</div>
+										<div class="caja base-100 tablet-80">
+											<textarea name="cuerpo" placeholder="¿Tienes una respuesta?" class="formulario__respuesta__cuerpo" type="text" required></textarea>
+										</div>
+									</div>
+									<div class="caja tablet-50 web-30 centrar-contenido centro limpiar">
+										<input class="formulario__enviar base-100 " type="submit" value="Responder!">
+									</div>
+
+								</div>
+							</form>
+						</div>
 					</article>
 				</div>
 			<?php endforeach;?>
 		</div>
 	</main>
-
+	<br /> <font size='1'><table class='xdebug-error xe-catchable-fatal-error' dir='ltr' border='1' cellspacing='0' cellpadding='1'> <tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Catchable fatal error: Argument 1 passed to Pladi\Helpers\Content::pregunta_html() must be an instance of Pladi\Model\Clase\Pregunta, instance of Pladi\Model\Clase\Respuesta given, called in /home/vagrant/Proyectos/pladi/Pladi/Controller/RespuestaController.php on line 60 and defined in /home/vagrant/Proyectos/pladi/Pladi/Helpers/Content.php on line <i>9</i></th></tr> <tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr> <tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr> <tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0006</td><td bgcolor='#eeeeec' align='right'>241752</td><td bgcolor='#eeeeec'>{main}( )</td><td title='/home/vagrant/Proyectos/pladi/public/index.php' bgcolor='#eeeeec'>.../index.php<b>:</b>0</td></tr> <tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0045</td><td bgcolor='#eeeeec' align='right'>265752</td><td bgcolor='#eeeeec'>Pladi\Core\ControladorFrontal->lanzarAccion( )</td><td title='/home/vagrant/Proyectos/pladi/public/index.php' bgcolor='#eeeeec'>.../index.php<b>:</b>14</td></tr> <tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.0045</td><td bgcolor='#eeeeec' align='right'>265752</td><td bgcolor='#eeeeec'>Pladi\Core\ControladorFrontal->cargarAccion( )</td><td title='/home/vagrant/Proyectos/pladi/Pladi/Core/ControladorFrontal.php' bgcolor='#eeeeec'>.../ControladorFrontal.php<b>:</b>48</td></tr> <tr><td bgcolor='#eeeeec' align='center'>4</td><td bgcolor='#eeeeec' align='center'>0.0045</td><td bgcolor='#eeeeec' align='right'>265944</td><td bgcolor='#eeeeec'>Pladi\Controller\RespuestaController->responder( )</td><td title='/home/vagrant/Proyectos/pladi/Pladi/Core/ControladorFrontal.php' bgcolor='#eeeeec'>.../ControladorFrontal.php<b>:</b>36</td></tr> <tr><td bgcolor='#eeeeec' align='center'>5</td><td bgcolor='#eeeeec' align='center'>0.0247</td><td bgcolor='#eeeeec' align='right'>312024</td><td bgcolor='#eeeeec'>Pladi\Helpers\Content::pregunta_html( )</td><td title='/home/vagrant/Proyectos/pladi/Pladi/Controller/RespuestaController.php' bgcolor='#eeeeec'>.../RespuestaController.php<b>:</b>60</td></tr> </table></font> 
 	<!-- scripts-->
 	<script src="/js/jquery.js"></script>
 	<script src="/js/home.js"></script>

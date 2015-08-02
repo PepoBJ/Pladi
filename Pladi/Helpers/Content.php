@@ -1,6 +1,7 @@
 <?php namespace Pladi\Helpers;
 	
 	use Pladi\Model\Clase\Pregunta;
+	use Pladi\Model\Clase\Respuesta;
 	use Pladi\Core\HelpersView as Helper;
 
 	class Content 
@@ -50,6 +51,31 @@
 						</div>
 						<div class="limpiar"></div>
 					</article>
+				</div>';
+		}
+
+		public static function respuesta_html(Respuesta $respuesta, Helper $helper )
+		{
+			return '<div class="respuesta limpiar">
+					<div class="caja respuesta__borde base-95 tablet-75">
+						<header class="respuesta__titulo centrar-contenido">
+							<h2>'. $respuesta->getTitulo() . '</h2>
+						</header>
+						<section class="respuesta__cuerpo">
+							<div class="respuesta__fecha derecha-contenido">
+								<span><time>'. $helper->fecha_amigable($respuesta->getFecha()) . '</time></span>
+							</div>
+							<div class="respuesta__texto">
+								<p>'. $respuesta->getCuerpo() . '</p>
+							</div>							
+						</section>
+						<footer class="respuesta__footer">
+							<a class="respuesta__denuncias">
+								<svg class="svg-bolt svg-icon" viewBox="0 0 20 20"><g><polygon points="14,7.4 9,7.4 9,1 4,11.6 9,11.6 9,18"></polygon></g></svg>
+								<span>'. $respuesta->getDenuncias() . '</span>
+							</a>
+						</footer>
+					</div>
 				</div>';
 		}
 	}
