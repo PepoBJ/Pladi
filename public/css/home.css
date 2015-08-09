@@ -50,7 +50,7 @@
 	background: rgba(0, 0, 0, .9);
 	margin-top: 2em;
 }
-.mis-preguntas {
+.mis-preguntas, .mis-notificaciones {
 	cursor: default;
 	border-bottom: 1px solid #ccc;
 	font-size: 1.3em;
@@ -182,7 +182,7 @@
 .pregunta__autor:hover {
 	text-decoration: underline;
 }
-.pregunta__fecha, .respuesta__fecha {
+.pregunta__fecha, .respuesta__fecha, .notificacion .fecha {
 	color: #555;
 	font-size: .75em;
 	font-weight: 600;
@@ -239,6 +239,35 @@
 }
 .respuesta__footer {
 	margin-bottom: .5em;
+}
+
+/*	NOTIFICACION  */
+#notificaciones {
+	margin-top: 2.5em;
+}
+#notificaciones .notificacion {
+	margin-bottom: 1em;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	line-height: 2;
+	transition: all ease-out .5s;
+	cursor: pointer;
+}
+.notificacion:hover {
+	background: rgba(0,0,0,.2);
+}
+.notificacion .titulo {
+	font-weight: bold;
+	font-size: .9em;
+}
+.notificacion.no-visto {
+	background: rgba(0,0,0,.1);
+}
+.notificacion .icon-aceptar {
+	color: #58AD1F;
+}
+.notificacion .icon-cerrar {
+	color: #E62117;
 }
 
 /* Desde tablet */

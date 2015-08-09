@@ -22,8 +22,8 @@
 	<main id="principal">
 		<div id="preguntar">
 			<?php if(@$misPreguntas):?>
-			<div class="caja">
-				<div class="grupo">
+			<div class="grupo">
+				<div class="caja">
 					<h2 class="mis-preguntas">Mis Preguntas</h2>
 				</div>
 			</div>

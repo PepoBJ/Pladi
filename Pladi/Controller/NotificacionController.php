@@ -3,6 +3,7 @@
 	use Pladi\Core\ControladorBase;
 	use Pladi\Model\NotificacionModel as NM;
 	use Pladi\Helpers\Request as HR;
+	use Pladi\Model\UsuarioModel as UM;
 
 	class NotificacionController extends ControladorBase
 	{
@@ -54,9 +55,14 @@
 			
 			if (isset($_SESSION['user'])) 
 			{
-				var_dump(NM::notifyUser($_SESSION['user']['id']));
+				$user = UM::id($_SESSION['user']['id']);
+
+				$data = array(
+					"usuario"    => $user,
+					"notificaciones" => NM::notifyUser($_SESSION['user']['id'])
+				);
 				NM::notifyCheck($_SESSION['user']['id']);
-				die(); 
+				$this->view('Notificacion/MisNotificaciones', $data);
 			}
 			else
 			{

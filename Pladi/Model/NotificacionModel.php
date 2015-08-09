@@ -61,7 +61,7 @@
 			$id_user = HS::clean_input($id_user);
 			$a_notificacion = new ANotificacion();
 			
-			$notificacion   = $a_notificacion->runSql("update notificacion n, pregunta p, usuario u set n.visto = 1 where u.id_usuario = p.fk_id_usuario and u.id_usuario = $id_user", self::NOTIFICACION_CONSTANTE);
+			$notificacion   = $a_notificacion->runSql("update notificacion n, pregunta p, usuario u set n.visto = 1 where n.fk_id_pregunta = p.id_pregunta and u.id_usuario = p.fk_id_usuario and u.id_usuario = $id_user", self::NOTIFICACION_CONSTANTE);
 
 			if(! isset($notificacion)) return null;
 
@@ -77,7 +77,7 @@
 			$id_user = HS::clean_input($id_user);
 			$a_notificacion = new ANotificacion();
 			
-			$notificacion   = $a_notificacion->runSql("select n.* from notificacion n inner join pregunta p on n.fk_id_pregunta = p.id_pregunta inner join usuario u on u.id_usuario = p.fk_id_usuario and u.id_usuario = $id_user ORDER BY `n`.`visto` ASC, n.fecha DESC", self::NOTIFICACION_CONSTANTE);
+			$notificacion   = $a_notificacion->runSql("select n.*, p.titulo from notificacion n inner join pregunta p on n.fk_id_pregunta = p.id_pregunta inner join usuario u on u.id_usuario = p.fk_id_usuario and u.id_usuario = $id_user ORDER BY `n`.`visto` ASC, n.fecha DESC");
 
 			if(! isset($notificacion)) return null;
 
