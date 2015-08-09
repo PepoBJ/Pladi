@@ -177,6 +177,72 @@
 		
 		/*	**	*/
 
+		/*		BUSCAR PREGUNTA		*/
+		
+		public static function searchQuestion($patron)
+		{
+			$patron = HS::clean_input($patron);
+
+			$a_pregunta = new APregunta();
+			$preguntas = $a_pregunta->runSql("SELECT * FROM pregunta WHERE titulo LIKE '%" . $patron . "%'", self::PREGUNTA_NAMESPACE);
+			if (! is_object($preguntas) && ! is_array($preguntas)) return null;
+
+			elseif(is_object($preguntas))
+			{
+				$preguntas = array ($preguntas);
+			}
+
+			foreach ($preguntas as $index => $pregunta_actual) {
+				$pregunta_actual->setCategoria(CM::id($pregunta_actual->getIdCategoria()));
+				$pregunta_actual->setUsuario(UM::id($pregunta_actual->getIdUsuario()));
+
+				$respuestas = RM::replysForQuestionId($pregunta_actual->getId(), RM::RESPUESTA_NAMESPACE);
+
+				if ( ! isset($respuestas) ) continue;
+
+				$pregunta_actual->setOBJRespuestas($respuestas);				
+				$preguntas[$index] = $pregunta_actual;
+
+			}
+
+			return $preguntas;
+		}
+		
+		/*	**	*/
+
+		/*		PREGUNTAS CON ID MAYOR A X 		*/
+		
+		public static function getQuestionRealTime($id)
+		{
+			$id = HS::clean_input($id);
+
+			$a_pregunta = new APregunta();
+			$preguntas = $a_pregunta->runSql("SELECT * FROM pregunta WHERE id_pregunta > " . $id . "", self::PREGUNTA_NAMESPACE);
+			if (! is_object($preguntas) && ! is_array($preguntas)) return null;
+
+			elseif(is_object($preguntas))
+			{
+				$preguntas = array ($preguntas);
+			}
+
+			foreach ($preguntas as $index => $pregunta_actual) {
+				$pregunta_actual->setCategoria(CM::id($pregunta_actual->getIdCategoria()));
+				$pregunta_actual->setUsuario(UM::id($pregunta_actual->getIdUsuario()));
+
+				$respuestas = RM::replysForQuestionId($pregunta_actual->getId(), RM::RESPUESTA_NAMESPACE);
+
+				if ( ! isset($respuestas) ) continue;
+
+				$pregunta_actual->setOBJRespuestas($respuestas);				
+				$preguntas[$index] = $pregunta_actual;
+
+			}
+
+			return $preguntas;
+		}
+		
+		/*	**	*/
+
 		/*		DENUNCIAR PREGUNTA 		*/
 		
 		public static function denunciarPregunta($id)

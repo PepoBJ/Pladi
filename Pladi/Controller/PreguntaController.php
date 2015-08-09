@@ -67,6 +67,37 @@
 		
 		/*	**	*/
 
+		/*		PREGUNTAS - REAL TIME 		*/
+		
+		public function realTime()
+		{
+			session_start();
+			
+			if (HR::is_ajax() && isset($_POST['last_id']) && isset($_SESSION['user'])) 
+			{
+				$preguntas = PM::getQuestionRealTime($_POST['last_id']);
+
+				$data   = array("exito" => count($preguntas) > 0 ? true : false);
+				
+				$helper = new \Pladi\Core\HelpersView();
+				
+				if($data['exito'])
+				{
+					$cuerpo = HC::pregunta_html($preguntas[0], $helper);
+					$data['html_data'] = $cuerpo;
+				}
+				
+				$data   = json_encode($data);
+			    echo $data;	    
+			}
+			else
+			{
+				$this->redirect();
+			}
+		}
+		
+		/*	**	*/
+
 		/*		MIS PREGUNTAS - GET 		*/
 		
 		public function misPreguntas()
@@ -88,6 +119,32 @@
 			{
 				$this->redirect();
 			}
+		}
+		
+		/*	**	*/
+
+		/*		BUSCAR PREGUNTA - NOMBRE 		*/
+		
+		public function buscar()
+		{
+			session_start();
+
+			if(isset($_SESSION['user']['id']) && isset($_SESSION['user']['email']))
+			{
+				$user = UM::id($_SESSION['user']['id']);
+
+				$data = array(
+					"usuario"      => $user,
+					"misPreguntas" => true,
+					"preguntas"    => isset($_POST['buscar']) ? PM::searchQuestion($_POST['buscar']) : null
+				);
+				
+				$this->view('Pregunta/Buscar', $data);
+			}
+			else
+			{
+				$this->redirect();
+			}	
 		}
 		
 		/*	**	*/

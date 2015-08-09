@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `respuesta` (
 -- Disparadores `respuesta`
 --
 DELIMITER //
-CREATE TRIGGER `insert_pregunta` AFTER INSERT ON `respuesta`
+CREATE TRIGGER `insert_respuesta` AFTER INSERT ON `respuesta`
  FOR EACH ROW BEGIN
   INSERT INTO `notificacion` (`fecha`,`visto`,`fk_id_pregunta`) VALUES
   (NEW.fecha,'0',NEW.fk_id_pregunta);   

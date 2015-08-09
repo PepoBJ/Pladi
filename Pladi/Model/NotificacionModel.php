@@ -2,6 +2,8 @@
 
 	use Pladi\Model\Action\Notificacion as ANotificacion;
 	use Pladi\Model\Clase\Notificacion as CNotificacion;
+	use Pladi\Helpers\Security as HS;
+
 
 	class NotificacionModel 
 	{
@@ -32,6 +34,54 @@
 			if(! isset($notificaciones)) return null;
 
 			return $notificaciones;
+		}
+		
+		/*	**	*/
+
+		/*		NOTIFICACION REAL TIME 		*/
+		
+		public static function getNotifyRealTime($id)
+		{
+			$id = HS::clean_input($id);
+
+			$a_notificacion = new ANotificacion();
+			$notificaciones = $a_notificacion->runSql("select count(*) as notifys from notificacion n inner join pregunta p on n.fk_id_pregunta = p.id_pregunta inner join usuario u on u.id_usuario = p.fk_id_usuario and n.visto = 0 and u.id_usuario = " . $id);
+
+			if (! is_object($notificaciones) && ! is_array($notificaciones)) return null;
+
+			return $notificaciones;
+		}
+		
+		/*	**	*/
+
+		/*		PONER EN VISTO LAS NOTIFICACIONES 		*/
+		
+		public static function notifyCheck($id_user)
+		{
+			$id_user = HS::clean_input($id_user);
+			$a_notificacion = new ANotificacion();
+			
+			$notificacion   = $a_notificacion->runSql("update notificacion n, pregunta p, usuario u set n.visto = 1 where u.id_usuario = p.fk_id_usuario and u.id_usuario = $id_user", self::NOTIFICACION_CONSTANTE);
+
+			if(! isset($notificacion)) return null;
+
+			return $notificacion;	
+		}
+		
+		/*	**	*/
+
+		/*		NOTIFICACIONES POR USUARIO		*/
+		
+		public static function notifyUser($id_user)
+		{
+			$id_user = HS::clean_input($id_user);
+			$a_notificacion = new ANotificacion();
+			
+			$notificacion   = $a_notificacion->runSql("select n.* from notificacion n inner join pregunta p on n.fk_id_pregunta = p.id_pregunta inner join usuario u on u.id_usuario = p.fk_id_usuario and u.id_usuario = $id_user ORDER BY `n`.`visto` ASC, n.fecha DESC", self::NOTIFICACION_CONSTANTE);
+
+			if(! isset($notificacion)) return null;
+
+			return $notificacion;
 		}
 		
 		/*	**	*/

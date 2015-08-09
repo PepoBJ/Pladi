@@ -6,6 +6,19 @@
 
 	class Content 
 	{
+
+		public static function preguntas_html(Pregunta $preguntas, Helper $helper)
+		{
+
+			$html = '';
+
+			foreach($preguntas as $pregunta)
+			{
+				$html .= SELF::pregunta_html($pregunta, $helper);	
+			}
+			return $html;
+		}
+
 		public static function pregunta_html(Pregunta $pregunta, Helper $helper)
 		{
 			$foto = $pregunta->getUsuario()->getPerfilUsuario()->getFoto(true) != NULL ? $pregunta->getUsuario()->getPerfilUsuario()->getFoto(true) : '/img/users/template.png' ;

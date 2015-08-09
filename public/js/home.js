@@ -10,8 +10,14 @@ $('.toggle-responder').on('click', function(){
 });
 
 var root = location.protocol + '//' + location.host;
+var pregunta_real_time;
+var notificacion_real_time;
 
 $(document).ready(function(){
+
+	pregunta_real_time = setInterval(real_time, 30000);
+	notificacion_real_time = setInterval(real_time_notify, 1000);
+	
 	$('.pregunta__denunciar').on('click', function () {
 		denunciar_pregunta($(this), $(this).data('id'));
 	});
@@ -49,6 +55,72 @@ $(document).ready(function(){
 	});
 });
 
+function real_time_notify()
+{	
+	console.log('envio');
+	$.ajax({
+		url : root + '/notificacion/realTime',
+		type : 'POST',
+		dataType : 'json',
+		success : function(json)
+		{
+			if(json.exito)
+			{
+				var animacion_notifiacion = setInterval(function(){
+					var color = $('.usuario__notificaciones').css('color');
+										
+					if(color == 'rgb(255, 255, 255)')
+						$('.usuario__notificaciones').css('color', 'rgb(255, 0, 0)');
+					else
+						$('.usuario__notificaciones').css('color', 'rgb(255, 255, 255)');
+				}, 600);
+				clearInterval(notificacion_real_time);
+			}
+			else {
+				console.log('No hay notificaciones...');
+			}
+		},
+		error : function(jqXHR, status, error)
+		{
+			console.dir(error);
+			console.dir(status);
+			console.dir(jqXHR);
+		},
+		complete: function () {
+			return false;
+		}
+	});	
+}
+
+function real_time() {
+	var id = $('#preguntas').find('.pregunta').first().data('id')
+
+	$.ajax({
+		url : root + '/pregunta/realTime',
+		data: { last_id : id},
+		type : 'POST',
+		dataType : 'json',
+		success : function(json)
+		{
+			if(json.exito)
+			{
+				$('#preguntas').prepend(json.html_data);		
+			}
+			else {
+				console.log('No se pudo cargar las preguntas en tiempo real.');
+			}
+		},
+		error : function(jqXHR, status, error)
+		{
+			console.dir(error);
+			console.dir(status);
+			console.dir(jqXHR);
+		},
+		complete: function () {
+			return false;
+		}
+	});
+}
 
 function animate_error()
 {
