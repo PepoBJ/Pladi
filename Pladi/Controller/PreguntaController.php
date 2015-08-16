@@ -3,6 +3,7 @@
 	use Pladi\Core\ControladorBase;
 	use Pladi\Model\PreguntaModel as PM;
 	use Pladi\Model\UsuarioModel as UM;
+	use Pladi\Model\CategoriaModel as CM;
 	use Pladi\Helpers\Request as HR;
 	use Pladi\Helpers\Content as HC;
 
@@ -98,6 +99,33 @@
 		
 		/*	**	*/
 
+		/*		PREGUNTA ID 		*/
+		
+		public function get($id)
+		{
+			session_start();
+			$id = intval($id);
+
+			if(isset($_SESSION['user']['id']) && isset($_SESSION['user']['email']) && isset($id) && is_int($id))
+			{				
+				$user = UM::id($_SESSION['user']['id']);
+
+				$data = array(
+					"usuario"      => $user,
+					"categorias"   => CM::all(),
+					"preguntas"    => array(PM::id($id))
+				);
+				
+				$this->view('Home', $data);
+			}
+			else
+			{
+				$this->redirect();
+			}
+		}
+		
+		/*	**	*/
+
 		/*		MIS PREGUNTAS - GET 		*/
 		
 		public function misPreguntas()
@@ -111,6 +139,7 @@
 				$data = array(
 					"usuario"      => $user,
 					"misPreguntas" => true,
+					"categorias"   => CM::all(),
 					"preguntas"    => PM::getQuestionIdUser($user->getId())
 				);
 				$this->view('Home', $data);

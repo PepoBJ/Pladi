@@ -26,6 +26,14 @@
 					<h2 class="mis-notificaciones">Mis Notificaciones</h2>
 				</div>
 			</div>
+
+		<?php if(isset($notificaciones) && (is_object($notificaciones) || is_array($notificaciones))): ?>
+		
+		<?php 
+			if(is_object($notificaciones))
+				$notificaciones = array($notificaciones);
+		?>
+
 		<?php foreach($notificaciones as $notificacion): ?>
 			<div class="grupo notificacion <?= $notificacion->visto == 0 ? 'no-visto' : 'si-visto' ?>" data-id="<?=$notificacion->id_notificacion?>" data-idPregunta="<?=$notificacion->fk_id_pregunta?>">
 				<div class="caja">
@@ -39,6 +47,16 @@
 				</div>
 			</div>
 		<?php endforeach; ?>
+
+		<?php else: ?>
+			
+		<div class="grupo">
+			<div class="caja sin__preguntas">
+				<h2 class="error">No tienes notificaciones</h2>
+			</div>
+		</div>
+
+		<?php endif; ?>
 		</div>
 	</main>
 	

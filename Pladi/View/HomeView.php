@@ -75,7 +75,11 @@
 				</div>
 			</form>
 		</div>
+		
 		<div id="preguntas">
+
+		<?php if(isset($preguntas)) : ?>
+
 			<?php foreach($preguntas as $key => $pregunta):?>
 				<div class="grupo">
 					<article class="pregunta limpiar" data-id="<?=$pregunta->getId()?>" id="<?=$pregunta->getId()?>">
@@ -181,6 +185,13 @@
 					</article>
 				</div>
 			<?php endforeach;?>
+		<?php else: ?>
+			<div class="grupo">
+				<div class="caja sin__preguntas">
+					<h2 class="error">No hay preguntas</h2>
+				</div>
+			</div>
+		<?php endif; ?>
 		</div>
 	</main>
 	

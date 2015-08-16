@@ -38,7 +38,7 @@
 					<input name="email" value="<?= $email ?>" placeholder="Ingresa tu Email" class="formulario__email" type="email" required>
 				</div>
 				<div class="caja tablet-50 web-30 centrar-contenido centro">
-					<input name="password" placeholder="Ingresa tu Contraseña" class="formulario__password" type="password" maxlength="10" minlength="8" required>
+					<input name="password" title="8 caracteres minimos" placeholder="Ingresa tu Contraseña" class="formulario__password" type="password" maxlength="10" minlength="8" required>
 				</div>
 				<div class="caja tablet-50 web-30 centrar-contenido centro">
 					<input class="formulario__enviar" type="submit" value="Únete a Pladi">

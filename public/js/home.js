@@ -21,9 +21,15 @@ $(document).ready(function(){
 	$('.pregunta__denunciar').on('click', function () {
 		denunciar_pregunta($(this), $(this).data('id'));
 	});
+
 	$('.respuesta__denunciar').on('click', function () {
 		denunciar_respuesta($(this), $(this).data('id'));
 	});
+
+	$('.notificacion').on('click', function(){
+		location.href = root + '/pregunta/get/' + $(this).data('idpregunta');
+	});
+
 	$('.formulario__preguntar').on('submit', function(){
 		var titulo = $('.formulario__pregunta__titulo').val();
 		var cuerpo = $('.formulario__pregunta__cuerpo').val();
@@ -57,7 +63,6 @@ $(document).ready(function(){
 
 function real_time_notify()
 {	
-	console.log('envio');
 	$.ajax({
 		url : root + '/notificacion/realTime',
 		type : 'POST',

@@ -72,16 +72,16 @@
                     <span class="logo__titulo">PlaDi</span>
                 </div>
                 <div class="caja base-1-6 medio">
-                    <a href="'.$this->url('usuario', 'profile').'" class="usuario__nombre icon-usuario espacio"><span>'.$usuario.'</span></a>
+                    <a href="'.$this->url('usuario', 'profile').'" title="Mi perfil" class="usuario__nombre icon-usuario espacio"><span>'.$usuario.'</span></a>
                 </div>
                 <div class="caja base-1-6 medio">
-                    <a href="'.$this->url('pregunta', 'misPreguntas').'" class="usuario__preguntas icon-tarjeta espacio"><span>Mis Preguntas</span></a>
+                    <a href="'.$this->url('pregunta', 'misPreguntas').'" title="Mis preguntas" class="usuario__preguntas icon-tarjeta espacio"><span>Mis Preguntas</span></a>
                 </div>
                 <div class="caja base-1-6 medio">
-                    <a href="'.$this->url('notificacion', 'misNotificaciones').'" class="usuario__notificaciones icon-fecha espacio"><span>Notificaciones</span></a>
+                    <a href="'.$this->url('notificacion', 'misNotificaciones').'" title="Mis notificaciones" class="usuario__notificaciones icon-fecha espacio"><span>Notificaciones</span></a>
                 </div>
                 <div class="caja base-1-6 medio">
-                    <a href="'.$this->url('pregunta', 'buscar').'" class="buscar icon-pin espacio derecha"><span>Buscar</span></a>
+                    <a href="'.$this->url('pregunta', 'buscar').'" title="buscar" class="buscar icon-pin espacio derecha"><span>Buscar</span></a>
                 </div>
                 <div class="caja logout base-1-6 medio">
                     <button class="logout__boton derecha">Logout</button>
