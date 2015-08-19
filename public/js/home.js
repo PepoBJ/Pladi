@@ -61,6 +61,11 @@ $(document).ready(function(){
 	});
 });
 
+function no_real_time()
+{
+	return $('#no-real-time').val() === "true" ? true : false;
+}
+
 function real_time_notify()
 {	
 	$.ajax({
@@ -98,6 +103,9 @@ function real_time_notify()
 }
 
 function real_time() {
+
+	if(no_real_time()) return;
+
 	var id = $('#preguntas').find('.pregunta').first().data('id')
 
 	$.ajax({

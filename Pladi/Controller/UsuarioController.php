@@ -16,6 +16,33 @@
 		
 		/*	**	*/
 
+		/*		USUARIOS LISTA 		*/
+		
+		public function lista()
+		{
+			session_start();
+
+			if(isset($_SESSION['user']['id']) && isset($_SESSION['user']['email']))
+			{
+				$user = UM::id($_SESSION['user']['id']);
+
+				if($user->getTipo() != "admin") $this->redirect();
+
+				$data = array(
+					"usuario"  => $user,
+					"usuarios" => UM::all()
+				);
+				
+				$this->view('Usuario/Lista', $data);
+			}
+			else
+			{
+				$this->redirect();
+			}
+		}
+		
+		/*	**	*/
+
 		/*		GET USUARIO [ID] 		*/
 		
 		public function get($id)
@@ -41,6 +68,7 @@
 				$data = array ( 
 					'exito'            => '',
 					'error'            => '',
+					'usuario'		   => $usuario,
 					'usuario_foto'     => $usuario->getPerfilUsuario()->getFoto(true),
 					'usuario_nombre'   => $usuario->getNombre(),
 					'usuario_apellido' => $usuario->getApellido(),

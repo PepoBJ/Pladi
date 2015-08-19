@@ -39,6 +39,27 @@
 		}
 		
 		/*	**	*/
+
+		/*		BANEAR 		*/
+		
+		public function banear()
+		{
+			session_start();
+
+			if (HR::is_ajax() && isset($_POST['id_pregunta']) && isset($_SESSION['user'])) 
+			{
+				$result = PM::deleteQuestion($_POST['id_pregunta']);
+				$data   = array("exito" => $result );
+				$data   = json_encode($data);
+			    echo $data;	    
+			}
+			else
+			{
+				$this->redirect();
+			}
+		}
+		
+		/*	**	*/
 		
 		/*		PREGUNTAR 		*/
 		
@@ -113,7 +134,8 @@
 				$data = array(
 					"usuario"      => $user,
 					"categorias"   => CM::all(),
-					"preguntas"    => array(PM::id($id))
+					"preguntas"    => array(PM::id($id)),
+					"noRealTime"   => true
 				);
 				
 				$this->view('Home', $data);
@@ -139,6 +161,7 @@
 				$data = array(
 					"usuario"      => $user,
 					"misPreguntas" => true,
+					"noRealTime"   => true,
 					"categorias"   => CM::all(),
 					"preguntas"    => PM::getQuestionIdUser($user->getId())
 				);
@@ -177,6 +200,34 @@
 		}
 		
 		/*	**	*/
+
+		/*		PREGUNTA LISTA 		*/
+		
+		public function lista()
+		{
+			session_start();
+
+			if(isset($_SESSION['user']['id']) && isset($_SESSION['user']['email']))
+			{
+				$user = UM::id($_SESSION['user']['id']);
+
+				if($user->getTipo() != "admin") $this->redirect();
+
+				$data = array(
+					"usuario"  => $user,
+					"preguntas" => PM::allDenied()
+				);
+				
+				$this->view('Pregunta/Lista', $data);
+			}
+			else
+			{
+				$this->redirect();
+			}
+		}
+		
+		/*	**	*/
+
 	}
 
 /*		FIN CLASS CONTROLLER PREGUNTA		*/

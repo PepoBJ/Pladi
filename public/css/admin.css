@@ -1,0 +1,80 @@
+#usuarios {
+	margin: 2em 0;
+}
+
+.usuario {
+	margin: 2em 0;
+}
+
+.usuario > .grupo {
+	padding: .5em 0;
+	border: 1px solid #000;
+	border-radius: .8em 0 .8em 0 ;
+	box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+
+.usuario a {
+	color: #000;
+	text-decoration: none;
+}
+
+.usuario a:hover {
+	text-decoration: underline;
+}
+
+#preguntas, #respuestas {
+	margin-top: 2.5em;
+}
+
+.pregunta_item, .respuesta_item {
+	margin: 1em 0;
+}
+.pregunta_item > .grupo, .respuesta_item > .grupo 
+{
+	border: 2px solid rgba(0,0,0,.8);
+	border-radius: 1em;
+}
+.pregunta_item .pregunta__eliminar, .respuesta_item .respuesta__eliminar {
+	color: #FF0033;
+	padding-top: .5em;
+}
+.pregunta_item .pregunta__eliminar a,
+.respuesta_item .respuesta__eliminar a {
+	cursor: pointer;
+	font-size: .8em;
+	font-weight: bold;
+}
+
+.pregunta_item .pregunta__titulo p,
+.respuesta_item .respuesta__titulo p {
+	font-weight: bold;
+	text-transform: uppercase;
+	cursor: default;
+}
+
+.pregunta_item .pregunta__fecha,
+.pregunta_item .pregunta__denuncias,
+.pregunta_item .pregunta__categoria,
+.pregunta_item .pregunta__email,
+.respuesta_item .respuesta__fecha,
+.respuesta_item .respuesta__denuncias{
+	font-size: .8em;
+	font-weight: bold;
+	color: #666;
+	cursor: default;
+}
+.pregunta_item .pregunta__categoria:hover {
+	text-decoration: none;
+}
+
+/* Desde tablet */
+@media all and (min-width:768px){
+	.pregunta_item .pregunta__email {
+		text-align: right;
+	}
+	.pregunta_item .pregunta__eliminar a:after,
+	.respuesta_item .respuesta__eliminar a:after {
+		content: "Eliminar";
+	}
+	
+}

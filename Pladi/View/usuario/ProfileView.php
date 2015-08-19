@@ -15,7 +15,11 @@
 	<header id="header">
 		<div class="container"> 
 			<nav id="menu">
-				<?= $helper->pladi_home_menu($usuario_nombre) ?>				
+				<?php if($usuario->getTipo() == "admin"): ?>
+					<?= $helper->pladi_home_menu_admin($usuario->getNombre()); ?>
+				<?php else : ?>
+					<?= $helper->pladi_home_menu($usuario->getNombre())?>	
+				<?php endif; ?>				
 			</nav>			
 		</div>
 	</header>

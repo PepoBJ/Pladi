@@ -14,7 +14,11 @@
 	<header id="header">
 		<div class="container"> 
 			<nav id="menu">
-				<?= $helper->pladi_home_menu($usuario->getNombre())?>	
+				<?php if($usuario->getTipo() == "admin"): ?>
+					<?= $helper->pladi_home_menu_admin($usuario->getNombre()); ?>
+				<?php else : ?>
+					<?= $helper->pladi_home_menu($usuario->getNombre())?>	
+				<?php endif; ?>
 			</nav>
 		</div>
 	</header>
@@ -195,6 +199,10 @@
 		</div>
 	</main>
 	
+	<?php if(isset($noRealTime) && $noRealTime): ?>
+		<input type="hidden" id="no-real-time" value="true">
+	<?php endif; ?>
+
 	<!-- scripts-->
 	<script src="/js/jquery.js"></script>
 	<script src="/js/home.js"></script>

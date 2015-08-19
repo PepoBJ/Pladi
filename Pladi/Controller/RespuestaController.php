@@ -2,6 +2,7 @@
 	
 	use Pladi\Core\ControladorBase;
 	use Pladi\Model\RespuestaModel as RM;
+	use Pladi\Model\UsuarioModel as UM;
 	use Pladi\Helpers\Request as HR;
 	use Pladi\Helpers\Content as HC;
 
@@ -38,6 +39,27 @@
 		
 		/*	**	*/
 
+		/*		BANEAR 		*/
+		
+		public function banear()
+		{
+			session_start();
+
+			if (HR::is_ajax() && isset($_POST['id_respuesta']) && isset($_SESSION['user'])) 
+			{
+				$result = RM::deleteReply($_POST['id_respuesta']);
+				$data   = array("exito" => $result );
+				$data   = json_encode($data);
+			    echo $data;	    
+			}
+			else
+			{
+				$this->redirect();
+			}
+		}
+		
+		/*	**	*/
+
 		/*		RESPONDER 		*/
 		
 		public function responder()
@@ -62,6 +84,33 @@
 				$data['html_data'] = $cuerpo;
 				$data   = json_encode($data);
 			    echo $data;	    
+			}
+			else
+			{
+				$this->redirect();
+			}
+		}
+		
+		/*	**	*/
+
+		/*		PREGUNTA LISTA 		*/
+		
+		public function lista()
+		{
+			session_start();
+
+			if(isset($_SESSION['user']['id']) && isset($_SESSION['user']['email']))
+			{
+				$user = UM::id($_SESSION['user']['id']);
+
+				if($user->getTipo() != "admin") $this->redirect();
+
+				$data = array(
+					"usuario"  => $user,
+					"respuestas" =>RM::allDenied()
+				);
+				
+				$this->view('Respuesta/Lista', $data);
 			}
 			else
 			{

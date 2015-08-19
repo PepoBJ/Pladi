@@ -36,6 +36,27 @@
 		
 		/*	**	*/
 
+		/*		ALL QUESTION FOR DENIED 		*/
+		
+		public static function allDenied()
+		{
+			$a_respuesta = new ARespuesta();
+			$respuestas = $a_respuesta->runSql("SELECT * FROM respuesta WHERE denuncias > 0 ORDER BY denuncias DESC", self::RESPUESTA_NAMESPACE);
+			
+			if (! is_object($respuestas) && ! is_array($respuestas)) return null;
+			if(! isset($respuestas)) return null;
+
+			elseif(is_object($respuestas))
+			{
+				$respuestas = array ($respuestas);
+			}
+
+			return $respuestas;
+		}
+				
+		
+		/*	**	*/
+
 		/*		RESPUESTA POR ID 		*/
 		
 		public static function id($id)

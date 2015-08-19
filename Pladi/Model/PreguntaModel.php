@@ -53,6 +53,39 @@
 		
 		/*	**	*/
 
+		/*		ALL QUESTION FOR DENIED 		*/
+		
+		public static function allDenied()
+		{
+			$a_pregunta = new APregunta();
+			$preguntas = $a_pregunta->runSql("SELECT * FROM pregunta WHERE denuncias > 0 ORDER BY denuncias DESC", self::PREGUNTA_NAMESPACE);
+			
+			if (! is_object($preguntas) && ! is_array($preguntas)) return null;
+
+			elseif(is_object($preguntas))
+			{
+				$preguntas = array ($preguntas);
+			}
+
+			foreach ($preguntas as $index => $pregunta_actual) {
+				$pregunta_actual->setCategoria(CM::id($pregunta_actual->getIdCategoria()));
+				$pregunta_actual->setUsuario(UM::id($pregunta_actual->getIdUsuario()));
+
+				$respuestas = RM::replysForQuestionId($pregunta_actual->getId(), RM::RESPUESTA_NAMESPACE);
+
+				if ( ! isset($respuestas) ) continue;
+
+				$pregunta_actual->setOBJRespuestas($respuestas);				
+				$preguntas[$index] = $pregunta_actual;
+
+			}
+
+			return $preguntas;
+		}
+				
+		
+		/*	**	*/
+
 		/*		PREGUNTA POR ID 		*/
 		
 		public static function id($id)

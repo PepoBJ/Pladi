@@ -38,14 +38,14 @@
 			</div>
 			<div class="grupo">
 
-				<?php for ($i = 0 ; $i < count($usuarios) && $i < 20 ; $i ++ ): ?>
+				<?php foreach($usuarios as $usuario): ?>
 
 					<div class="caja centrar-contenido base-50 movil-1-3 tablet-1-6 web-1-8">
-						<img id="<?=$usuarios[$i]->getId();?>" class="usuario__imagen" src="<?= $usuarios[$i]->getPerfilUsuario()->getFoto(true) != NULL ? $usuarios[$i]->getPerfilUsuario()->getFoto(true) : '/img/users/template.png' ?>" alt="user <?=$usuarios[$i]->getNombre()?>">
-						<p class="usuario__nombre"><?=$usuarios[$i]->getNombre();?></p>
+						<img id="<?=$usuario->getId();?>" class="usuario__imagen" src="<?= $usuario->getPerfilUsuario()->getFoto(true) != NULL ? $usuario->getPerfilUsuario()->getFoto(true) : '/img/users/template.png' ?>" alt="user <?=$usuario->getNombre()?>">
+						<p class="usuario__nombre"><?=$usuario->getNombre();?></p>
 					</div>
 
-				<?php endfor; ?>
+				<?php endforeach; ?>
 				
 			</div>
 		</section>
