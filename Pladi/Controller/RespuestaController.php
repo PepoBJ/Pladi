@@ -3,6 +3,7 @@
 	use Pladi\Core\ControladorBase;
 	use Pladi\Model\RespuestaModel as RM;
 	use Pladi\Model\UsuarioModel as UM;
+	use Pladi\Model\Clase\Respuesta as CR;
 	use Pladi\Helpers\Request as HR;
 	use Pladi\Helpers\Content as HC;
 
@@ -70,7 +71,7 @@
 			{
 				$data   = array("exito" => RM::saveReply($_POST['title'], $_POST['body'], "", 0, $_POST['id']));
 				
-				$respuesta = RM::id(1);
+				$respuesta = new CR();
 				$respuesta->setTitulo($_POST['title']);
 				$respuesta->setCuerpo($_POST['body']);
 				$respuesta->setFecha("");

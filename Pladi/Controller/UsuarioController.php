@@ -100,6 +100,7 @@
 				$data = array ( 
 					'exito'            => '',
 					'error'            => '',
+					'usuario'          => $usuario,
 					'usuario_foto'     => $usuario->getPerfilUsuario()->getFoto(true),
 					'usuario_nombre'   => $_POST['nombre'],
 					'usuario_apellido' =>  $_POST['apellido'],

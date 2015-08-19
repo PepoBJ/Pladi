@@ -202,7 +202,7 @@
 	<?php if(isset($noRealTime) && $noRealTime): ?>
 		<input type="hidden" id="no-real-time" value="true">
 	<?php endif; ?>
-
+	
 	<!-- scripts-->
 	<script src="/js/jquery.js"></script>
 	<script src="/js/home.js"></script>
