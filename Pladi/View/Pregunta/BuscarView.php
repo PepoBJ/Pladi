@@ -5,10 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<?=$helper->pladi_favicon();?>
 	<title>Pladi - Home</title>
-	<link rel="stylesheet" href="/css/ed-grid.css">
-	<link rel="stylesheet" href="/css/menu-footer.css">
-	<link rel="stylesheet" href="/css/formulario.css">
-	<link rel="stylesheet" href="/css/home.css">
+	<?= $helper->css('ed-grid')?>
+	<?= $helper->css('menu-footer')?>
+	<?= $helper->css('formulario')?>
+	<?= $helper->css('home')?>
 </head>
 <body>
 	<header id="header">
@@ -51,7 +51,7 @@
 				<div class="grupo">
 					<article class="pregunta limpiar" data-id="<?=$pregunta->getId()?>" id="<?=$pregunta->getId()?>">
 						<div class="caja desde-tablet tablet-15">
-							<img class="circulo centro tablet-50" src="<?= $pregunta->getUsuario()->getPerfilUsuario()->getFoto(true) != NULL ? $pregunta->getUsuario()->getPerfilUsuario()->getFoto(true) : '/img/users/template.png' ?>" alt="user imagen profile">
+							<img class="circulo centro tablet-50" src="<?= $pregunta->getUsuario()->getPerfilUsuario()->getFoto(true) != NULL ? $pregunta->getUsuario()->getPerfilUsuario()->getFoto(true) : $helper->base_url().'/img/users/template.png' ?>" alt="user imagen profile">
 						</div>
 						<div class="caja tablet-85">
 							<header class="pregunta__titulo centrar-contenido">
@@ -158,8 +158,9 @@
 	</main>
 	
 	<!-- scripts-->
-	<script src="/js/jquery.js"></script>
-	<script src="/js/home.js"></script>
-	<script src="/js/eventos.js"></script>	
+	<?= $helper->js('jquery')?>
+	<?= $helper->js('variables-globales')?>
+	<?= $helper->js('home')?>
+	<?= $helper->js('eventos')?>
 </body>
 </html> 

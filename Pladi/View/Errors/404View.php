@@ -5,11 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<?=$helper->pladi_favicon();?>
 	<title>No se encontro</title>
-	<link rel="stylesheet" href="/css/ed-grid.css">
-	<link rel="stylesheet" href="/css/menu-footer.css">
-	<link rel="stylesheet" href="/css/formulario.css">
-	<link rel="stylesheet" href="/css/http-errors.css">
-
+	<?= $helper->css('ed-grid')?>
+	<?= $helper->css('menu-footer')?>
+	<?= $helper->css('formulario')?>
+	<?= $helper->css('http-errors')?>
 </head>
 <body>
 	<header id="header">
@@ -32,7 +31,8 @@
 	</main>
 
 	<!-- scripts-->
-	<script src="/js/jquery.js"></script>
-	<script src="/js/eventos.js"></script>	
+	<?= $helper->js('jquery')?>
+	<?= $helper->js('variables-globales')?>
+	<?= $helper->js('eventos')?>
 </body>
 </html>

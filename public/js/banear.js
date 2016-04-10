@@ -1,4 +1,4 @@
-var root = location.protocol + '//' + location.host;
+
 
 $('.eliminar_pregunta').on('click', function(){
 	banear_pregunta(this, $(this).data('id'));

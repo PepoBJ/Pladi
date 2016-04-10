@@ -5,11 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<?=$helper->pladi_favicon();?>
 	<title>Pladi - Home</title>
-	<link rel="stylesheet" href="/css/ed-grid.css">
-	<link rel="stylesheet" href="/css/menu-footer.css">
-	<link rel="stylesheet" href="/css/formulario.css">
-	<link rel="stylesheet" href="/css/home.css">
-	<link rel="stylesheet" href="/css/admin.css">
+	<?= $helper->css('ed-grid')?>
+	<?= $helper->css('menu-footer')?>
+	<?= $helper->css('formulario')?>
+	<?= $helper->css('home')?>
+	<?= $helper->css('admin')?>
 </head>
 <body>
 	<header id="header">
@@ -28,7 +28,7 @@
 					<article class="usuario limpiar">
 					<div class="grupo base-tabla">
 						<div class="caja desde-tablet tablet-15 web-20">
-							<img id="<?=$usuario->getId();?>" class="usuario__imagen circulo medio" src="<?= $usuario->getPerfilUsuario()->getFoto(true) != NULL ? $usuario->getPerfilUsuario()->getFoto(true) : '/img/users/template.png' ?>" alt="user <?=$usuario->getNombre()?>">
+							<img id="<?=$usuario->getId();?>" class="usuario__imagen circulo medio" src="<?= $usuario->getPerfilUsuario()->getFoto(true) != NULL ? $usuario->getPerfilUsuario()->getFoto(true) : $helper->base_url().'/img/users/template.png' ?>" alt="user <?=$usuario->getNombre()?>">
 						</div>
 						<div class="caja movil-50 tablet-45 web-60 medio">
 							<p><a href="#" class="icon-usuario espacio"><?= $usuario->getNombre() . " " . $usuario->getApellido();?></a></p>
@@ -54,7 +54,8 @@
 	</main>
 
 	<!-- scripts-->
-	<script src="/js/jquery.js"></script>
-	<script src="/js/eventos.js"></script>	
+	<?= $helper->js('jquery')?>
+	<?= $helper->js('variables-globales')?>
+	<?= $helper->js('eventos')?>
 </body>
 </html> 

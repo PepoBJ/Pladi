@@ -1,4 +1,4 @@
-var root = location.protocol + '//' + location.host;
+
 
 $(document).ready(function()
 {

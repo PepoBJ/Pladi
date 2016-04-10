@@ -40,11 +40,11 @@
 
             if ( ! isset($args))
             {
-                header("Location:/" . $controlador . "/" . $accion);
+                header("Location:" . VariablesGlobales::$base_url . $controlador . "/" . $accion);
             }
             else
             {
-                header("Location:/" . $controlador . "/" . $accion . "/" . $args);
+                header("Location:" . VariablesGlobales::$base_url . $controlador . "/" . $accion . "/" . $args);
             }
         }
         

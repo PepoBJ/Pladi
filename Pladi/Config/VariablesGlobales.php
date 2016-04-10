@@ -13,5 +13,11 @@
 		public static $accion_defecto      = "index";
 		
 		/*	**	*/
+
+		/*		SUB-RUTA [ CARPETA] 		*/
+
+		public static $base_url = "http://aplicacion.app/"; // en caso de usar dominio [ejemplo.com] dejar en blanco
+		
+		/*  **  */
 	}
 /*		FIN CLASS VARIABLES GLOBALES		*/

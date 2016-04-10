@@ -1,6 +1,7 @@
 <?php namespace Pladi\Model\Clase;
 	
 	use Pladi\Helpers\Security as SS;
+	use Pladi\Config\VariablesGlobales;
 
 	class PerfilUsuario 
 	{
@@ -51,7 +52,7 @@
 		{
 			if ($this->foto == NULL) return NULL;
 			
-			if($path) return self::PATH . $this->foto;
+			if($path) return VariablesGlobales::$base_url . self::PATH . $this->foto;
 
 			return $this->foto;
 		}

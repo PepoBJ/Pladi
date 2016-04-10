@@ -21,7 +21,7 @@
 
 		public static function pregunta_html(Pregunta $pregunta, Helper $helper)
 		{
-			$foto = $pregunta->getUsuario()->getPerfilUsuario()->getFoto(true) != NULL ? $pregunta->getUsuario()->getPerfilUsuario()->getFoto(true) : '/img/users/template.png' ;
+			$foto = $pregunta->getUsuario()->getPerfilUsuario()->getFoto(true) != NULL ? $pregunta->getUsuario()->getPerfilUsuario()->getFoto(true) : $helper->base_url().'/img/users/template.png' ;
 			
 			return '<div class="grupo">
 					<article class="pregunta limpiar" data-id="'. $pregunta->getId() .'">

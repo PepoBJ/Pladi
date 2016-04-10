@@ -9,14 +9,14 @@ $('.toggle-responder').on('click', function(){
 	$($(this).parents('.caja').parents('.grupo')[0]).siblings('.formulario__responder').slideToggle(500);
 });
 
-var root = location.protocol + '//' + location.host;
+
 var pregunta_real_time;
 var notificacion_real_time;
 
 $(document).ready(function(){
 
-	pregunta_real_time = setInterval(real_time, 30000);
-	notificacion_real_time = setInterval(real_time_notify, 1000);
+	pregunta_real_time = setInterval(real_time, pregunta_sleep);
+	notificacion_real_time = setInterval(real_time_notify, notificaion_sleep);
 	
 	$('.pregunta__denunciar').on('click', function () {
 		denunciar_pregunta($(this), $(this).data('id'));
@@ -106,7 +106,7 @@ function real_time() {
 
 	if(no_real_time()) return;
 
-	var id = $('#preguntas').find('.pregunta').first().data('id')
+	var id = $('#preguntas').find('.pregunta').first().data('id') || 1;	
 
 	$.ajax({
 		url : root + '/pregunta/realTime',

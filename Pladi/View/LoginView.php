@@ -5,10 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<?=$helper->pladi_favicon();?>
 	<title>Login - Pladi</title>
-	<link rel="stylesheet" href="/css/ed-grid.css">
-	<link rel="stylesheet" href="/css/menu-footer.css">
-	<link rel="stylesheet" href="/css/login.css">
-	<link rel="stylesheet" href="/css/formulario.css">
+	<?= $helper->css('ed-grid')?>
+	<?= $helper->css('menu-footer')?>
+	<?= $helper->css('login')?>
+	<?= $helper->css('formulario')?>
 
 </head>
 <body>
@@ -47,7 +47,8 @@
 	</main>
 	
 	<!-- scripts-->
-	<script src="/js/jquery.js"></script>
-	<script src="/js/eventos.js"></script>
+	<?= $helper->js('jquery')?>
+	<?= $helper->js('variables-globales')?>
+	<?= $helper->js('eventos')?>
 </body>
 </html> 

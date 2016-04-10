@@ -5,9 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<?=$helper->pladi_favicon();?>
 	<title>Pladi</title>
-	<link rel="stylesheet" href="/css/ed-grid.css">
-	<link rel="stylesheet" href="/css/index.css">
-	<link rel="stylesheet" href="/css/menu-footer.css">
+	<?= $helper->css('ed-grid')?>
+	<?= $helper->css('index')?>
+	<?= $helper->css('menu-footer')?>
+
 </head>
 <body>
 	
@@ -41,7 +42,7 @@
 				<?php foreach($usuarios as $usuario): ?>
 
 					<div class="caja centrar-contenido base-50 movil-1-3 tablet-1-6 web-1-8">
-						<img id="<?=$usuario->getId();?>" class="usuario__imagen" src="<?= $usuario->getPerfilUsuario()->getFoto(true) != NULL ? $usuario->getPerfilUsuario()->getFoto(true) : '/img/users/template.png' ?>" alt="user <?=$usuario->getNombre()?>">
+						<img id="<?=$usuario->getId();?>" class="usuario__imagen" src="<?= $usuario->getPerfilUsuario()->getFoto(true) != NULL ? $usuario->getPerfilUsuario()->getFoto(true) : 'img/users/template.png' ?>" alt="user <?=$usuario->getNombre()?>">
 						<p class="usuario__nombre"><?=$usuario->getNombre();?></p>
 					</div>
 
@@ -56,8 +57,9 @@
 	</footer>
 
 	<!-- scripts-->
-	<script src="/js/jquery.js"></script>
-	<script src="/js/eventos.js"></script>
+	<?= $helper->js('jquery')?>
+	<?= $helper->js('variables-globales')?>
+	<?= $helper->js('eventos')?>
 </body>
 </html>
 	

@@ -12,10 +12,15 @@
             $controlador = $controlador == "" ? VariablesGlobales::$controlador_defecto : $controlador;
             $accion      = $accion == "" ?VariablesGlobales::$accion_defecto : $accion;
             
-            $urlString   = "/" . $controlador . "/" . $accion . "/" . $param;
+            $urlString   = VariablesGlobales::$base_url . "/" . $controlador . "/" . $accion . "/" . $param;
             return $urlString;
         }
         
+        public function base_url() 
+        {
+            return VariablesGlobales::$base_url;
+        }
+
         public function frase() {
           $frases = array (
             "El optimista encuentra una respuesta para cada problema, El pesimista ve un problema en cada respuesta",
@@ -39,7 +44,9 @@
             $host_protocol = $protocol.$domainName;
 
             return '<link rel="shortcut icon" href="' . $host_protocol . 'favicon.ico" />
-            <link rel="icon" type="image/png" href="' . $host_protocol . 'img/logo.png" />';
+            <link rel="icon" type="image/png" href="' . $host_protocol . 'img/logo.png" />
+            <link rel="shortcut icon" href="' . VariablesGlobales::$base_url . 'favicon.ico" />
+            <link rel="icon" type="image/png" href="' . VariablesGlobales::$base_url . 'img/logo.png" />';
         }
         
         /*    **    */
@@ -51,7 +58,7 @@
             return 
             '<div class="grupo base-tabla">
                 <div class="caja logo base-50">
-                    <img class="logo__img" src="/img/logo.png" alt="logo">
+                    <img class="logo__img" src="' . VariablesGlobales::$base_url . '/img/logo.png" alt="logo">
                     <span class="logo__titulo">PlaDi</span>
                 </div>
                 <div class="caja login base-50 medio">
@@ -68,7 +75,7 @@
             return 
             '<div class="grupo base-tabla centrar-contenido">
                 <div class="caja logo logo__home base-1-6">
-                    <img class="logo__img" src="/img/logo.png" alt="logo">
+                    <img class="logo__img" src="' . VariablesGlobales::$base_url . '/img/logo.png" alt="logo">
                     <span class="logo__titulo">PlaDi</span>
                 </div>
                 <div class="caja base-1-6 medio">
@@ -98,7 +105,7 @@
             return 
             '<div class="grupo base-tabla centrar-contenido">
                 <div class="caja logo logo__home base-1-6">
-                    <img class="logo__img" src="/img/logo.png" alt="logo">
+                    <img class="logo__img" src="'. VariablesGlobales::$base_url .'/img/logo.png" alt="logo">
                     <span class="logo__titulo">PlaDi</span>
                 </div>
                 <div class="caja base-1-6 medio">
@@ -136,6 +143,23 @@
                 </div>
             </div>';
         }
+        /*    **    */
+
+        /*        LINKER CSS         */
+        
+        public function css($css_name)
+        {
+            return "<link rel='stylesheet' href='" . VariablesGlobales::$base_url . "/css/$css_name.css'>";
+        }
+        
+        /*    **    */
+        /*        LINKER JS         */
+        
+        public function js($js_name)
+        {
+            return "<script src='" . VariablesGlobales::$base_url . "/js/$js_name.js'></script>";
+        }
+        
         /*    **    */
 
         /*        CONVERT FECHA AMIGABLE         */

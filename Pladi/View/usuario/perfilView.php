@@ -5,9 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<?=$helper->pladi_favicon();?>
 	<title>Pefil de <?= $usuario->getNombre()?></title>
-	<link rel="stylesheet" href="/css/ed-grid.css">
-	<link rel="stylesheet" href="/css/menu-footer.css">
-	<link rel="stylesheet" href="/css/perfil-usuario.css">
+	<?= $helper->css('ed-grid')?>
+	<?= $helper->css('menu-footer')?>
+	<?= $helper->css('perfil-usuario')?>
 </head>
 <body>
 	<header id="header">
@@ -22,7 +22,7 @@
 		<section id="perfil">
 			<div class="grupo">
 				<div class="perfil__imagen caja tablet-50 web-30">
-					<img class="base-40 movil-30 tablet-50 web-70 centro circulo" src="<?= $usuario->getPerfilUsuario()->getFoto(true) != NULL ? $usuario->getPerfilUsuario()->getFoto(true) : '/img/users/template.png' ?>" alt="">
+					<img class="base-40 movil-30 tablet-50 web-70 centro circulo" src="<?= $usuario->getPerfilUsuario()->getFoto(true) != NULL ? $usuario->getPerfilUsuario()->getFoto(true) : $helper->base_url() . '/img/users/template.png' ?>" alt="">
 				</div>
 				<div class="perfil__informacion caja tablet-50 web-70">					
 					<div class="grupo no-padding">
@@ -50,7 +50,8 @@
 	</main>
 
 	<!-- scripts-->
-	<script src="/js/jquery.js"></script>
-	<script src="/js/eventos.js"></script>
+	<?= $helper->js('jquery')?>
+	<?= $helper->js('variables-globales')?>
+	<?= $helper->js('eventos')?>
 </body>
 </html>
