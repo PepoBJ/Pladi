@@ -42,7 +42,7 @@
 				<?php foreach($usuarios as $usuario): ?>
 
 					<div class="caja centrar-contenido base-50 movil-1-3 tablet-1-6 web-1-8">
-						<img id="<?=$usuario->getId();?>" class="usuario__imagen" src="<?= $usuario->getPerfilUsuario()->getFoto(true) != NULL ? $usuario->getPerfilUsuario()->getFoto(true) : 'img/users/template.png' ?>" alt="user <?=$usuario->getNombre()?>">
+						<img id="<?=$usuario->getId();?>" class="usuario__imagen" src="<?= $usuario->getPerfilUsuario()->getFoto(true) != NULL ? $usuario->getPerfilUsuario()->getFoto(true) : $helper->base_url().'img/users/template.png' ?>" alt="user <?=$usuario->getNombre()?>">
 						<p class="usuario__nombre"><?=$usuario->getNombre();?></p>
 					</div>
 
